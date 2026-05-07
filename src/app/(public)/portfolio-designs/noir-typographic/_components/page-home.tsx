@@ -76,13 +76,20 @@ function PageHome({ profile }: { profile: Portfolio }) {
                   <code className="text-xs sm:text-sm md:text-base"><span className="hidden sm:inline">View</span> Projects</code>
                 </Button>
               </Link>
-              <Button
-                variant="outline"
-                className="h-12 sm:h-14 cursor-pointer gap-3 sm:px-8 flex-1 sm:flex-none"
+              <Link
+                href={`/${profile.slug}/cv`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 sm:flex-none"
               >
-                <ArrowDownToLine className="size-4 sm:size-5" strokeWidth={2.5} />
-                <code className="text-xs sm:text-sm md:text-base">Download CV</code>
-              </Button>
+                <Button
+                  variant="outline"
+                  className="h-12 sm:h-14 cursor-pointer gap-3 sm:px-8 w-full"
+                >
+                  <ArrowDownToLine className="size-4 sm:size-5" strokeWidth={2.5} />
+                  <code className="text-xs sm:text-sm md:text-base">Download CV</code>
+                </Button>
+              </Link>
             </div>
             <div className="flex flex-row gap-2 pt-4">
               {socialLinks.map((link) => (

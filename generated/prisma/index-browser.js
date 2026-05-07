@@ -227,6 +227,8 @@ exports.Prisma.ProjectScalarFieldEnum = {
   github: 'github',
   developedAt: 'developedAt',
   tools: 'tools',
+  isInCV: 'isInCV',
+  isInPortfolio: 'isInPortfolio',
   isSelected: 'isSelected',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

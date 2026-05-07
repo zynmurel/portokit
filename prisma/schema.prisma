@@ -60,26 +60,26 @@ model Session {
 }
 
 model Portfolio {
-    id          String  @id @default(cuid())
-    image       String
-    userId      String
-    title       String
-    role        String
-    logo        String
-    name        String
-    slug        String  @unique
-    description String?
-    location    String?
-    github      String?
-    gitlab      String?
-    linkedin    String?
-    facebook    String?
-    twitter     String?
-    instagram   String?
-    tiktok      String?
-    isPublished Boolean @default(false)
-    theme       String  @default("default")
-    design      String  @default("noir-typographic")
+    id            String   @id @default(cuid())
+    image         String
+    userId        String
+    title         String
+    role          String
+    logo          String
+    name          String
+    slug          String   @unique
+    description   String?
+    location      String?
+    github        String?
+    gitlab        String?
+    linkedin      String?
+    facebook      String?
+    twitter       String?
+    instagram     String?
+    tiktok        String?
+    isPublished   Boolean  @default(false)
+    theme         String   @default("default")
+    design        String   @default("noir-typographic")
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -152,17 +152,19 @@ model Education {
 }
 
 model Project {
-    id          String      @id @default(cuid())
-    portfolioId String
-    order       Int         @default(autoincrement())
-    title       String
-    type        ProjectType @default(PERSONAL)
-    description String
-    mainImage   String?
-    url         String?
-    github      String?
-    developedAt DateTime
-    tools       String[]
+    id            String      @id @default(cuid())
+    portfolioId   String
+    order         Int         @default(autoincrement())
+    title         String
+    type          ProjectType @default(PERSONAL)
+    description   String
+    mainImage     String?
+    url           String?
+    github        String?
+    developedAt   DateTime
+    tools         String[]
+    isInCV        Boolean     @default(false)
+    isInPortfolio Boolean     @default(true)
 
     isSelected Boolean @default(false) //isSelected is used to determine if the project is selected for the resume download
 

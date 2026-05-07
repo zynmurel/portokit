@@ -10168,6 +10168,8 @@ export namespace Prisma {
     url: string | null
     github: string | null
     developedAt: Date | null
+    isInCV: boolean | null
+    isInPortfolio: boolean | null
     isSelected: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -10184,6 +10186,8 @@ export namespace Prisma {
     url: string | null
     github: string | null
     developedAt: Date | null
+    isInCV: boolean | null
+    isInPortfolio: boolean | null
     isSelected: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -10201,6 +10205,8 @@ export namespace Prisma {
     github: number
     developedAt: number
     tools: number
+    isInCV: number
+    isInPortfolio: number
     isSelected: number
     createdAt: number
     updatedAt: number
@@ -10227,6 +10233,8 @@ export namespace Prisma {
     url?: true
     github?: true
     developedAt?: true
+    isInCV?: true
+    isInPortfolio?: true
     isSelected?: true
     createdAt?: true
     updatedAt?: true
@@ -10243,6 +10251,8 @@ export namespace Prisma {
     url?: true
     github?: true
     developedAt?: true
+    isInCV?: true
+    isInPortfolio?: true
     isSelected?: true
     createdAt?: true
     updatedAt?: true
@@ -10260,6 +10270,8 @@ export namespace Prisma {
     github?: true
     developedAt?: true
     tools?: true
+    isInCV?: true
+    isInPortfolio?: true
     isSelected?: true
     createdAt?: true
     updatedAt?: true
@@ -10364,6 +10376,8 @@ export namespace Prisma {
     github: string | null
     developedAt: Date
     tools: string[]
+    isInCV: boolean
+    isInPortfolio: boolean
     isSelected: boolean
     createdAt: Date
     updatedAt: Date
@@ -10400,6 +10414,8 @@ export namespace Prisma {
     github?: boolean
     developedAt?: boolean
     tools?: boolean
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -10420,6 +10436,8 @@ export namespace Prisma {
     github?: boolean
     developedAt?: boolean
     tools?: boolean
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -10438,6 +10456,8 @@ export namespace Prisma {
     github?: boolean
     developedAt?: boolean
     tools?: boolean
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -10456,12 +10476,14 @@ export namespace Prisma {
     github?: boolean
     developedAt?: boolean
     tools?: boolean
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "order" | "title" | "type" | "description" | "mainImage" | "url" | "github" | "developedAt" | "tools" | "isSelected" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "order" | "title" | "type" | "description" | "mainImage" | "url" | "github" | "developedAt" | "tools" | "isInCV" | "isInPortfolio" | "isSelected" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
     images?: boolean | Project$imagesArgs<ExtArgs>
@@ -10492,6 +10514,8 @@ export namespace Prisma {
       github: string | null
       developedAt: Date
       tools: string[]
+      isInCV: boolean
+      isInPortfolio: boolean
       isSelected: boolean
       createdAt: Date
       updatedAt: Date
@@ -10931,6 +10955,8 @@ export namespace Prisma {
     readonly github: FieldRef<"Project", 'String'>
     readonly developedAt: FieldRef<"Project", 'DateTime'>
     readonly tools: FieldRef<"Project", 'String[]'>
+    readonly isInCV: FieldRef<"Project", 'Boolean'>
+    readonly isInPortfolio: FieldRef<"Project", 'Boolean'>
     readonly isSelected: FieldRef<"Project", 'Boolean'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly updatedAt: FieldRef<"Project", 'DateTime'>
@@ -14841,6 +14867,8 @@ export namespace Prisma {
     github: 'github',
     developedAt: 'developedAt',
     tools: 'tools',
+    isInCV: 'isInCV',
+    isInPortfolio: 'isInPortfolio',
     isSelected: 'isSelected',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -15626,6 +15654,8 @@ export namespace Prisma {
     github?: StringNullableFilter<"Project"> | string | null
     developedAt?: DateTimeFilter<"Project"> | Date | string
     tools?: StringNullableListFilter<"Project">
+    isInCV?: BoolFilter<"Project"> | boolean
+    isInPortfolio?: BoolFilter<"Project"> | boolean
     isSelected?: BoolFilter<"Project"> | boolean
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
@@ -15645,6 +15675,8 @@ export namespace Prisma {
     github?: SortOrderInput | SortOrder
     developedAt?: SortOrder
     tools?: SortOrder
+    isInCV?: SortOrder
+    isInPortfolio?: SortOrder
     isSelected?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -15667,6 +15699,8 @@ export namespace Prisma {
     github?: StringNullableFilter<"Project"> | string | null
     developedAt?: DateTimeFilter<"Project"> | Date | string
     tools?: StringNullableListFilter<"Project">
+    isInCV?: BoolFilter<"Project"> | boolean
+    isInPortfolio?: BoolFilter<"Project"> | boolean
     isSelected?: BoolFilter<"Project"> | boolean
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
@@ -15686,6 +15720,8 @@ export namespace Prisma {
     github?: SortOrderInput | SortOrder
     developedAt?: SortOrder
     tools?: SortOrder
+    isInCV?: SortOrder
+    isInPortfolio?: SortOrder
     isSelected?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -15711,6 +15747,8 @@ export namespace Prisma {
     github?: StringNullableWithAggregatesFilter<"Project"> | string | null
     developedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     tools?: StringNullableListFilter<"Project">
+    isInCV?: BoolWithAggregatesFilter<"Project"> | boolean
+    isInPortfolio?: BoolWithAggregatesFilter<"Project"> | boolean
     isSelected?: BoolWithAggregatesFilter<"Project"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
@@ -16606,6 +16644,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -16625,6 +16665,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -16642,6 +16684,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16661,6 +16705,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16679,6 +16725,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -16695,6 +16743,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16712,6 +16762,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17527,6 +17579,8 @@ export namespace Prisma {
     github?: SortOrder
     developedAt?: SortOrder
     tools?: SortOrder
+    isInCV?: SortOrder
+    isInPortfolio?: SortOrder
     isSelected?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -17547,6 +17601,8 @@ export namespace Prisma {
     url?: SortOrder
     github?: SortOrder
     developedAt?: SortOrder
+    isInCV?: SortOrder
+    isInPortfolio?: SortOrder
     isSelected?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -17563,6 +17619,8 @@ export namespace Prisma {
     url?: SortOrder
     github?: SortOrder
     developedAt?: SortOrder
+    isInCV?: SortOrder
+    isInPortfolio?: SortOrder
     isSelected?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19049,6 +19107,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -19066,6 +19126,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -19297,6 +19359,8 @@ export namespace Prisma {
     github?: StringNullableFilter<"Project"> | string | null
     developedAt?: DateTimeFilter<"Project"> | Date | string
     tools?: StringNullableListFilter<"Project">
+    isInCV?: BoolFilter<"Project"> | boolean
+    isInPortfolio?: BoolFilter<"Project"> | boolean
     isSelected?: BoolFilter<"Project"> | boolean
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
@@ -20267,6 +20331,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -20285,6 +20351,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -20317,6 +20385,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20335,6 +20405,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20564,6 +20636,8 @@ export namespace Prisma {
     github?: string | null
     developedAt: Date | string
     tools?: ProjectCreatetoolsInput | string[]
+    isInCV?: boolean
+    isInPortfolio?: boolean
     isSelected?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -20682,6 +20756,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20699,6 +20775,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20716,6 +20794,8 @@ export namespace Prisma {
     github?: NullableStringFieldUpdateOperationsInput | string | null
     developedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tools?: ProjectUpdatetoolsInput | string[]
+    isInCV?: BoolFieldUpdateOperationsInput | boolean
+    isInPortfolio?: BoolFieldUpdateOperationsInput | boolean
     isSelected?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

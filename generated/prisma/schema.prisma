@@ -152,17 +152,19 @@ model Education {
 }
 
 model Project {
-  id          String      @id @default(cuid())
-  portfolioId String
-  order       Int         @default(autoincrement())
-  title       String
-  type        ProjectType @default(PERSONAL)
-  description String
-  mainImage   String?
-  url         String?
-  github      String?
-  developedAt DateTime
-  tools       String[]
+  id            String      @id @default(cuid())
+  portfolioId   String
+  order         Int         @default(autoincrement())
+  title         String
+  type          ProjectType @default(PERSONAL)
+  description   String
+  mainImage     String?
+  url           String?
+  github        String?
+  developedAt   DateTime
+  tools         String[]
+  isInCV        Boolean     @default(false)
+  isInPortfolio Boolean     @default(true)
 
   isSelected Boolean @default(false) //isSelected is used to determine if the project is selected for the resume download
 

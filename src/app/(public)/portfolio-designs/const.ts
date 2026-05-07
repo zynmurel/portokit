@@ -1,4 +1,4 @@
-import NoirTypographic from "./noir-typographic/noir-typographic";
+import NoirTypographic from "./noir-typographic/main";
 import type {
   Portfolio,
   Experience,

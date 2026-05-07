@@ -125,6 +125,35 @@ export const portfolioRouter = createTRPCRouter({
           experiences: true,
           education: true,
           projects: {
+            where: {
+              isInPortfolio: true,
+            },
+            include: {
+              images: true,
+            },
+            orderBy: {
+              order: "asc",
+            },
+          },
+          skills: true,
+          professionalTraits: true,
+        },
+      });
+    }),
+  getCvBySlug: publicProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      return ctx.db.portfolio.findUnique({
+        where: {
+          slug: input,
+        },
+        include: {
+          experiences: true,
+          education: true,
+          projects: {
+            where: {
+              isInCV: true,
+            },
             include: {
               images: true,
             },
