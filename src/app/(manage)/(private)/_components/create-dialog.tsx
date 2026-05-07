@@ -6,7 +6,6 @@ import { useForm, useFieldArray, type FieldPath } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import { Badge } from "@/components/ui/badge";
 
 import {
   Dialog,
@@ -18,12 +17,7 @@ import {
 import AlertFormClose from "./alert-form-close";
 import {
   portfolioSchema,
-  type Education,
-  type Experience,
   type PortfolioFormValues,
-  type ProfessionalTrait,
-  type Project,
-  type Skill,
 } from "./form-components/schema";
 import StepOne from "./form-components/step-1";
 import StepTwo from "./form-components/step-2";
@@ -35,7 +29,6 @@ import StepFour from "./form-components/step-4";
 import ProfessionalTraitDialog from "./form-components/dialogs/traits";
 import StepFive from "./form-components/step-5";
 import ProjectDialog from "./form-components/dialogs/project";
-import { format } from "date-fns";
 import { uploadImage } from "@/lib/api/upload-image";
 import { api } from "@/trpc/react";
 import toast from "react-hot-toast";
@@ -91,12 +84,6 @@ const defaultValues = {
   skills: [],
   projects: [],
 };
-
-const splitTools = (value?: string) =>
-  (value ?? "")
-    .split(",")
-    .map((tool) => tool.trim())
-    .filter(Boolean);
 
 const getFileFromUnknown = (value: unknown): File | null => {
   if (value instanceof File) return value;

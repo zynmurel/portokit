@@ -20,13 +20,13 @@ function StepTwo({
     parseAsInteger,
   );
 
-  const handleAddEducation = () => {
-    setEducationDialogOpen(-1);
+  const handleAddEducation = async () => {
+    await setEducationDialogOpen(-1);
     form.clearErrors("education");
   };
 
-  const handleEditEducation = (index: number) => {
-    setEducationDialogOpen(index);
+  const handleEditEducation = async (index: number) => {
+    await setEducationDialogOpen(index);
   };
   
   const isError = form.formState.errors.education;

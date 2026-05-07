@@ -148,7 +148,7 @@ function StepSix({ reviewValues }: { reviewValues: PortfolioFormValues }) {
             icon={<LayoutGrid className="h-4 w-4" />}
             iconClass="bg-primary text-primary-foreground"
             title={project.title}
-            date={format(project.developedAt, "MMM dd, yyyy")}
+            date={project.developedAt ? format(project.developedAt, "MMM dd, yyyy") : undefined}
           >
             <p className="text-muted-foreground mt-1.5 text-xs leading-relaxed">
               {project.description}

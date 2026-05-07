@@ -22,7 +22,7 @@ function ThemeSetter({
         setTheme(`${themeName}-dark`);
       }
     }
-  }, [themeName]);
+  }, [themeName, theme, setTheme]);
   return <>{children}</>;
 }
 

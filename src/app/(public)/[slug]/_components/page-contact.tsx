@@ -17,7 +17,6 @@ import {
 import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { api } from "@/trpc/react";
-import { SectionLabel } from "./section-label";
 
 const outlineText =
   "text-background [text-shadow:-2px_0_var(--foreground),2px_0_var(--foreground),0_-2px_var(--foreground),0_2px_var(--foreground)]";

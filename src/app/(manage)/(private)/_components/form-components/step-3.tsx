@@ -4,7 +4,6 @@ import { type PortfolioFormValues } from "./schema";
 import { Button } from "@/components/ui/button";
 import {
   BriefcaseBusiness,
-  CornerDownRight,
   Dot,
   Pencil,
   Plus,
@@ -29,13 +28,13 @@ function StepThree({
     parseAsInteger,
   );
 
-  const handleAddExperience = () => {
-    setExperienceDialogOpen(-1);
+  const handleAddExperience = async () => {
+    await setExperienceDialogOpen(-1);
     form.clearErrors("experience");
   };
 
-  const handleEditExperience = (index: number) => {
-    setExperienceDialogOpen(index);
+  const handleEditExperience = async (index: number) => {
+    await setExperienceDialogOpen(index);
   };
 
   const isError = form.formState.errors.experience;

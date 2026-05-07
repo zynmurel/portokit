@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
 import { registerUser } from "./actions";
@@ -23,8 +23,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import PortoIcon from "@/app/_components/porto-icon";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 export function RegistrationForm() {
   const [isPending, startTransition] = useTransition();
@@ -164,9 +164,9 @@ export function RegistrationForm() {
 
               <p className="text-muted-foreground text-center text-xs">
                 Already have an account?{" "}
-                <a href="/login" className="hover:text-foreground underline">
+                <Link href="/login" className="hover:text-foreground underline">
                   Sign in
-                </a>
+                </Link>
               </p>
             </form>
           </Form>

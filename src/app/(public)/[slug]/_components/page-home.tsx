@@ -1,6 +1,5 @@
 import type { Portfolio } from "generated/prisma";
 import React from "react";
-import { ThemeToggle } from "./theme-button";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowDownToLine, Dot, LayoutGrid } from "lucide-react";

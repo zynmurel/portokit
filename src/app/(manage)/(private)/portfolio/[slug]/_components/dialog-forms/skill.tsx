@@ -1,7 +1,5 @@
 "use client";
 
-import { useQueryState } from "nuqs";
-import { parseAsInteger } from "nuqs";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -14,7 +12,6 @@ import {
   FormItem,
   FormLabel,
   FormControl,
-  FormMessage,
 } from "@/components/ui/form";
 import { useEffect, useState } from "react";
 import {
@@ -23,16 +20,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { GraduationCapIcon, Pickaxe, UserPen } from "lucide-react";
+import {  Pickaxe, UserPen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
-import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/trpc/react";
 import { uploadImage } from "@/lib/api/upload-image";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
-import MonthYearPicker from "@/components/ui/date-month-picker";
 
 const defaultValues: SkillSchema = {
   name: "",
@@ -71,7 +66,7 @@ const SkillFormDialog = ({
         );
         onOpenChange(null);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error(
           open === "create" ? "Failed to add skill" : "Failed to update skill",
         );
@@ -111,10 +106,10 @@ const SkillFormDialog = ({
         icon: data.icon ?? "",
       });
     }
-  }, [data, open]);
+  }, [data, open, skillForm]);
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="">
         <DialogHeader>
           <div className="flex items-center gap-2">

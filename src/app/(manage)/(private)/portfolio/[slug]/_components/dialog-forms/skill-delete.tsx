@@ -8,12 +8,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { GraduationCapIcon, Pickaxe, Trash2, TrashIcon } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
-import { format } from "date-fns";
 import Image from "next/image";
 
 const SkillDeleteDialog = ({
@@ -37,7 +36,7 @@ const SkillDeleteDialog = ({
         onOpenChange(null);
         toast.success("Skill deleted successfully");
       },
-      onError: (error) => {
+      onError: () => {
         toast.error("Failed to delete skill");
       },
     });
@@ -55,7 +54,7 @@ const SkillDeleteDialog = ({
   };
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="">
         <DialogHeader>
           <div className="flex items-start gap-2">

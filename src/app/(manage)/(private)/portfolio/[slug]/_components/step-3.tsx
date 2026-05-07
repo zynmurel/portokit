@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -6,21 +6,16 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import type { Experience, Portfolio, Prisma } from "generated/prisma";
-import DetailsFormDialog from "./dialog-forms/details";
+import type { Experience } from "generated/prisma";
 import { Button } from "@/components/ui/button";
 import {
   BriefcaseBusiness,
   Dot,
   GraduationCapIcon,
-  MapPinIcon,
   Pencil,
-  PencilIcon,
   Plus,
   Trash2,
-  UserIcon,
 } from "lucide-react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { StepTwoLoader } from "./loaders";
 import { format } from "date-fns";

@@ -9,18 +9,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import {
-  GraduationCapIcon,
-  Pickaxe,
   Trash2,
-  TrashIcon,
   TrendingUpDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
-import { format } from "date-fns";
-import Image from "next/image";
 
 const TraitDeleteDialog = ({
   open,
@@ -43,7 +38,7 @@ const TraitDeleteDialog = ({
         onOpenChange(null);
         toast.success("Trait deleted successfully");
       },
-      onError: (error) => {
+      onError: () => {
         toast.error("Failed to delete professional trait");
       },
     });
@@ -61,7 +56,7 @@ const TraitDeleteDialog = ({
   };
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="">
         <DialogHeader>
           <div className="flex items-start gap-2">

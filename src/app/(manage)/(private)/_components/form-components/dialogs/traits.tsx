@@ -20,7 +20,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Pickaxe, TrendingUpDown } from "lucide-react";
+import { TrendingUpDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -51,9 +51,9 @@ const ProfessionalTraitDialog = ({
     });
   };
 
-  const onOpenChange = (open: boolean) => {
+  const onOpenChange = async (open: boolean) => {
     if (!open) {
-      setOpen(null);
+      await setOpen(null);
       console.log("resetting");
       onClearValues();
     }
@@ -66,7 +66,7 @@ const ProfessionalTraitDialog = ({
     },
   });
 
-  const onSubmit = (data: ProfessionalTraitSchema) => {
+  const onSubmit = async (data: ProfessionalTraitSchema) => {
     if (open === -1) {
       append(data);
     } else if (typeof open === "number" && open >= 0) {
@@ -75,7 +75,7 @@ const ProfessionalTraitDialog = ({
         name: data.name.trim(),
       });
     }
-    setOpen(null);
+    await setOpen(null);
     onClearValues();
   };
 
@@ -88,7 +88,7 @@ const ProfessionalTraitDialog = ({
         ...professionalTrait,
       });
     }
-  }, [open]);
+  }, [open, professionalTraitForm, professionalTraits]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>

@@ -53,7 +53,7 @@ export function StepTwoLoader() {
     <div className="overflow-hidden rounded-lg">
       <div className="space-y-3">
         {Array.from({ length: 3 }).map((_, index) => (
-          <div className="rounded-md border">
+          <div key={index} className="rounded-md border">
             {/* Header */}
             <div className="flex items-center justify-between px-3 py-2">
               <Skeleton className="h-5 w-28" />
@@ -112,7 +112,7 @@ export function StepFourProfessionalTraitsLoader() {
   return (
     <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
       {Array.from({ length: 4 }).map((_, index) => (
-        <div className="rounded-md border">
+        <div key={index} className="rounded-md border">
           {/* Header */}
           <div className="flex items-center justify-between py-2 pr-3 pl-2">
             <div className="flex items-center gap-2">

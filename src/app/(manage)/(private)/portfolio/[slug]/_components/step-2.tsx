@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import type { Education, Prisma } from "generated/prisma";
+import type { Education } from "generated/prisma";
 import { Button } from "@/components/ui/button";
 import { GraduationCapIcon, Pencil, Plus, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";

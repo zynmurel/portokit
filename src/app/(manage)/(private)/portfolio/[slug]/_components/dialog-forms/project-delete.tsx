@@ -35,7 +35,7 @@ const ProjectDeleteDialog = ({
         onOpenChange(null);
         toast.success("Project deleted successfully");
       },
-      onError: (error) => {
+      onError: () => {
         toast.error("Failed to delete project");
       },
     });
@@ -53,7 +53,7 @@ const ProjectDeleteDialog = ({
   };
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="">
         <DialogHeader>
           <div className="flex items-start gap-2">

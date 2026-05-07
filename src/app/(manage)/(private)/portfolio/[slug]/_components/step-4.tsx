@@ -15,7 +15,6 @@ import {
   Plus,
   Trash2,
   TrendingUpDown,
-  XIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { StepFourProfessionalTraitsLoader, StepFourSkillsLoader } from "./loaders";
@@ -37,11 +36,9 @@ import {
 } from "@dnd-kit/core";
 import {
   arrayMove,
-  verticalListSortingStrategy,
   SortableContext,
   sortableKeyboardCoordinates,
   useSortable,
-  horizontalListSortingStrategy,
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
 import SkillFormDialog from "./dialog-forms/skill";
@@ -50,7 +47,6 @@ import toast from "react-hot-toast";
 import { Separator } from "@/components/ui/separator";
 import TraitFormDialog from "./dialog-forms/trait";
 import type { FieldArrayWithId } from "react-hook-form";
-import { parseAsInteger, useQueryState } from "nuqs";
 import { CSS } from "@dnd-kit/utilities";
 import TraitDeleteDialog from "./dialog-forms/trait-delete";
 import Image from "next/image";
@@ -149,7 +145,7 @@ const SkillsDetailsContent = ({
 
   const { mutateAsync: switchSkillOrder, isPending } =
     api.portfolio.switchSkillOrder.useMutation({
-      onError: (error) => {
+      onError: () => {
         setSkillLists(skillLists);
         toast.error("Failed to switch skill order");
       },
@@ -347,7 +343,7 @@ const ProfessionalTraitsDetailsContent = ({
 
   const { mutateAsync: switchProfessionalTraitOrder, isPending } =
     api.portfolio.switchProfessionalTraitOrder.useMutation({
-      onError: (error) => {
+      onError: () => {
         setProfessionalTraitLists(professionalTraitLists);
         toast.error("Failed to switch professional trait order");
       },
@@ -550,6 +546,7 @@ function SortableProfessionalTraitRow({
             variant="ghost"
             size="icon-sm"
             className="size-6 flex-none"
+            disabled={disabled}
             {...attributes}
             {...listeners}
           >

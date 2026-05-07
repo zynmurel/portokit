@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { GraduationCapIcon, Trash2, TrashIcon } from "lucide-react";
+import { GraduationCapIcon, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 import { useParams } from "next/navigation";
@@ -36,7 +36,7 @@ const EducationDeleteDialog = ({
         onOpenChange(null);
         toast.success("Education deleted successfully");
       },
-      onError: (error) => {
+      onError: () => {
         toast.error("Failed to delete education");
       },
     });
@@ -54,7 +54,7 @@ const EducationDeleteDialog = ({
   };
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="min-w-[93%] gap-1 sm:min-w-[90%] lg:min-w-2xl">
         <DialogHeader>
           <div className="flex items-start gap-2">

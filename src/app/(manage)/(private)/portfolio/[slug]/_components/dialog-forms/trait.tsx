@@ -63,7 +63,7 @@ const TraitFormDialog = ({
         );
         onOpenChange(null);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error(
           open === "create" ? "Failed to add skill" : "Failed to update skill",
         );
@@ -91,10 +91,13 @@ const TraitFormDialog = ({
         description: data.description ?? "",
       });
     }
-  }, [data, open]);
+  }, [data, open, professionalTraitForm]);
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog
+      open={open !== null}
+      onOpenChange={(open) => onOpenChange(open ? null : "create")}
+    >
       <DialogContent className="">
         <DialogHeader>
           <div className="flex items-center gap-2">

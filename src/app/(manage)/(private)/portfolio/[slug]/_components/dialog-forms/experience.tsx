@@ -1,7 +1,5 @@
 "use client";
 
-import { useQueryState } from "nuqs";
-import { parseAsInteger } from "nuqs";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -16,7 +14,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -26,10 +24,8 @@ import {
 import { GraduationCapIcon, UserPen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ImageUpload } from "@/components/ui/image-upload";
 import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/trpc/react";
-import { uploadImage } from "@/lib/api/upload-image";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
 import MonthYearPicker from "@/components/ui/date-month-picker";
@@ -78,7 +74,7 @@ const ExperienceFormDialog = ({
         );
         onOpenChange(null);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error(
           open === "create"
             ? "Failed to add experience"
@@ -113,10 +109,13 @@ const ExperienceFormDialog = ({
         isCurrent: data.isCurrent,
       });
     }
-  }, [data, open]);
+  }, [data, open, experienceForm]);
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog
+      open={open !== null}
+      onOpenChange={(open) => onOpenChange(open ? null : "create")}
+    >
       <DialogContent className="min-w-[93%] sm:min-w-[90%] lg:min-w-3xl">
         <DialogHeader>
           <div className="flex items-center gap-2">
@@ -188,7 +187,9 @@ const ExperienceFormDialog = ({
                           checked={field.value}
                           onCheckedChange={(e) => {
                             field.onChange(e);
-                            e && experienceForm.setValue("endDate", undefined);
+                            if (e) {
+                              experienceForm.setValue("endDate", undefined);
+                            }
                           }}
                         />
                       </FormControl>
@@ -242,7 +243,7 @@ const ExperienceFormDialog = ({
                     <FormLabel>
                       Tools{" "}
                       <span className="text-muted-foreground text-xs">
-                        Separate each tool with a comma ","
+                        Separate each tool with a comma &quot;,&quot;
                       </span>
                     </FormLabel>
                     <FormControl>

@@ -6,13 +6,12 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import type { Portfolio, Prisma } from "generated/prisma";
+import type { Portfolio } from "generated/prisma";
 import DetailsFormDialog from "./dialog-forms/details";
 import { Button } from "@/components/ui/button";
 import { MapPinIcon, PencilIcon, UserIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Skeleton } from "@/components/ui/skeleton";
 import {
   FaGithub,
   FaGitlab,

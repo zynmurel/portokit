@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { api } from "@/trpc/react";
 import { useParams } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import StepOne from "./_components/step-1";
 import StepTwo from "./_components/step-2";
 import StepThree from "./_components/step-3";
@@ -20,11 +20,14 @@ const tabs = [
 
 function Page() {
   const { slug } = useParams<{ slug: string }>();
-  const [activeTab, setActiveTab] = useQueryState("activeTab", parseAsString.withDefault("Portfolio Details"));
+  const [activeTab, setActiveTab] = useQueryState(
+    "activeTab",
+    parseAsString.withDefault("Portfolio Details"),
+  );
   const { data: portfolio, isLoading } = api.portfolio.getBySlug.useQuery(slug);
 
   return (
-    <div className="flex w-full flex-col gap-5 overflow-hidden p-5 max-w-[1300px] mx-auto">
+    <div className="mx-auto flex w-full max-w-[1300px] flex-col gap-5 overflow-hidden p-5">
       <div className="flex flex-col gap-1">
         <p className="text-2xl font-bold"> Manage Portfolio</p>
         <p className="text-muted-foreground text-sm">
@@ -63,9 +66,9 @@ function Page() {
           {activeTab === "Skills & Traits" && (
             <StepFour portfolioId={portfolio?.id || ""} />
           )}
-            {activeTab === "Projects" && (
-              <StepFive portfolioId={portfolio?.id || ""} />
-            )}
+          {activeTab === "Projects" && (
+            <StepFive portfolioId={portfolio?.id || ""} />
+          )}
         </div>
       </div>
     </div>

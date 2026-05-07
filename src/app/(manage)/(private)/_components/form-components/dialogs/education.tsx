@@ -52,9 +52,9 @@ const EducationDialog = ({
     });
   };
 
-  const onOpenChange = (open: boolean) => {
+  const onOpenChange = async (open: boolean) => {
     if (!open) {
-      setOpen(null);
+      await setOpen(null);
       console.log("resetting");
       onClearValues();
     }
@@ -67,7 +67,7 @@ const EducationDialog = ({
     },
   });
 
-  const onSubmit = (data: EducationSchema) => {
+  const onSubmit = async (data: EducationSchema) => {
     if (data.startDate > data.endDate) {
       educationForm.setError("startDate", {
         message: "Start date must be before end date",
@@ -79,7 +79,7 @@ const EducationDialog = ({
     } else if (typeof open === "number" && open >= 0) {
       update(open, data);
     }
-    setOpen(null);
+    await setOpen(null);
     onClearValues();
   };
 
@@ -90,7 +90,7 @@ const EducationDialog = ({
       const education = educations[open];
       educationForm.reset(education);
     }
-  }, [open]);
+  }, [open, educations, educationForm]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -110,7 +110,7 @@ const EducationDialog = ({
               <FormField
                 control={educationForm.control}
                 name="school"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
                     <FormLabel>School</FormLabel>
                     <FormControl>

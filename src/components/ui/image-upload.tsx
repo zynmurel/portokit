@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { UploadCloud, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type ImageUploadProps = {
   value?: File | null;
@@ -175,9 +176,11 @@ export function ImageUpload({
             isError && "border-destructive",
           )}
         >
-          <img
+          <Image
             src={preview}
             alt="Preview"
+            width={100}
+            height={100}
             className={cn(
               "border object-cover",
               previewImageStyle,

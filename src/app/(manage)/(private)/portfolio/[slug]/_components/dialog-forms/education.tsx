@@ -1,7 +1,5 @@
 "use client";
 
-import { useQueryState } from "nuqs";
-import { parseAsInteger } from "nuqs";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -16,7 +14,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -26,10 +24,7 @@ import {
 import { GraduationCapIcon, UserPen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ImageUpload } from "@/components/ui/image-upload";
-import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/trpc/react";
-import { uploadImage } from "@/lib/api/upload-image";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
 import MonthYearPicker from "@/components/ui/date-month-picker";
@@ -73,7 +68,7 @@ const EducationFormDialog = ({
         );
         onOpenChange(null);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error(
           open === "create"
             ? "Failed to add education"
@@ -106,10 +101,10 @@ const EducationFormDialog = ({
         endDate: data.endDate ?? new Date(),
       });
     }
-  }, [data, open]);
+  }, [data, open, educationForm]);
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="min-w-[93%] sm:min-w-[90%] lg:min-w-3xl">
         <DialogHeader>
           <div className="flex items-center gap-2">
@@ -130,7 +125,7 @@ const EducationFormDialog = ({
               <FormField
                 control={educationForm.control}
                 name="school"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
                     <FormLabel>School</FormLabel>
                     <FormControl>

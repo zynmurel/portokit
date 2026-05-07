@@ -23,9 +23,7 @@ import {
 } from "@/components/ui/dialog";
 import {
   FolderOpenIcon,
-  Pickaxe,
   Trash2Icon,
-  TrashIcon,
   Upload,
   UserPen,
 } from "lucide-react";
@@ -111,7 +109,7 @@ const ProjectFormDialog = ({
         );
         onOpenChange(null);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error(
           open === "create" ? "Failed to add skill" : "Failed to update skill",
         );
@@ -128,7 +126,7 @@ const ProjectFormDialog = ({
         toast.success("Image deleted successfully");
         setDeleteImage(null);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error("Failed to delete image");
       },
     });
@@ -196,9 +194,9 @@ const ProjectFormDialog = ({
     return next;
   };
 
-  const onDeleteImage = (id?: string) => {
+  const onDeleteImage = async (id?: string) => {
     if (id) {
-      deleteProjectImage({
+      await deleteProjectImage({
         id,
       });
     }
@@ -220,10 +218,10 @@ const ProjectFormDialog = ({
         images: [],
       });
     }
-  }, [open]);
+  }, [open, projectForm, data]);
 
   return (
-    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(null)}>
+    <Dialog open={open !== null} onOpenChange={(open) => onOpenChange(open ? null : "create")}>
       <DialogContent className="min-w-[93%] sm:min-w-[90%] lg:min-w-3xl">
         <DialogHeader>
           <div className="flex items-center gap-2">
@@ -306,7 +304,7 @@ const ProjectFormDialog = ({
                     <FormLabel>
                       Tools
                       <span className="text-muted-foreground text-xs">
-                        Separate each tool with a comma ","
+                        Separate each tool with a comma &quot;,&quot;
                       </span>
                     </FormLabel>
                     <FormControl>
@@ -371,7 +369,7 @@ const ProjectFormDialog = ({
               <FormField
                 control={projectForm.control}
                 name="images"
-                render={({ field }) => (
+                render={() => (
                   <FormItem className="md:col-span-2">
                     <FormLabel>Other Images</FormLabel>
 
@@ -415,7 +413,7 @@ const ProjectFormDialog = ({
                       {data?.images?.map(
                         (image: ProjectImages, index: number) => {
                           return (
-                            <Dialog>
+                            <Dialog key={index}>
                               <DialogTrigger asChild>
                                 <div
                                   key={index}
@@ -466,7 +464,7 @@ const ProjectFormDialog = ({
                             (field: { file: File }, index: number) => {
                               const imageUrl = URL.createObjectURL(field.file);
                               return (
-                                <Dialog>
+                                <Dialog key={index}>
                                   <DialogTrigger asChild>
                                     <div
                                       key={index}

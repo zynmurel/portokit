@@ -1,7 +1,6 @@
 import React from "react";
 import {
   useFormContext,
-  type Control,
   type FieldArrayWithId,
 } from "react-hook-form";
 import { type PortfolioFormValues } from "./schema";
@@ -70,13 +69,13 @@ function StepFour({
     parseAsInteger,
   );
 
-  const handleAddprofessionalTrait = () => {
-    setprofessionalTraitDialogOpen(-1);
+  const handleAddprofessionalTrait = async () => {
+    await setprofessionalTraitDialogOpen(-1);
     form.clearErrors("professionalTraits");
   };
 
-  const handleAddskill = () => {
-    setskillDialogOpen(-1);
+  const handleAddskill = async () => {
+    await setskillDialogOpen(-1);
     form.clearErrors("skills");
   };
 
@@ -340,6 +339,7 @@ function SortableProfessionalTraitRow({
             variant="ghost"
             size="icon-sm"
             className="size-6 flex-none"
+            disabled={disabled}
             {...attributes}
             {...listeners}
           >
@@ -354,6 +354,7 @@ function SortableProfessionalTraitRow({
             size="icon"
             className="size-8 cursor-pointer"
             onClick={() => setprofessionalTraitDialogOpen(index)}
+            disabled={disabled}
           >
             <Pencil className="size-4" />
           </Button>

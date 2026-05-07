@@ -1,7 +1,5 @@
 "use client";
 
-import { useQueryState } from "nuqs";
-import { parseAsInteger } from "nuqs";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { detailsSchema } from "@/app/(manage)/(private)/_components/form-components/schema";
@@ -21,9 +19,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { GraduationCapIcon, UserPen } from "lucide-react";
+import { UserPen } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import MonthYearPicker from "@/components/ui/date-month-picker";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { Textarea } from "@/components/ui/textarea";
@@ -72,7 +69,7 @@ const DetailsFormDialog = ({
         toast.success("Portfolio updated successfully");
         onOpenChange(false);
       },
-      onError: (error) => {
+      onError: () => {
         toast.error("Failed to update portfolio");
       },
       onSettled: () => {
@@ -128,7 +125,7 @@ const DetailsFormDialog = ({
     if (data) {
       detailsForm.reset(data);
     }
-  }, [data, open]);
+  }, [data, open, detailsForm]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

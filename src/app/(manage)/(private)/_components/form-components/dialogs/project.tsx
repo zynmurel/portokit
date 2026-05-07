@@ -30,7 +30,6 @@ import { cleanDescription, cleanTools } from "../helper";
 import { ImageUpload } from "@/components/ui/image-upload";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import { ProjectType } from "generated/prisma";
 import {
   Select,
   SelectValue,
@@ -73,9 +72,9 @@ const ProjectDialog = ({
     });
   };
 
-  const onOpenChange = (open: boolean) => {
+  const onOpenChange = async (open: boolean) => {
     if (!open) {
-      setOpen(null);
+      await setOpen(null);
       onClearValues();
     }
   };
@@ -87,7 +86,7 @@ const ProjectDialog = ({
     },
   });
 
-  const onSubmit = (data: ProjectSchema) => {
+  const onSubmit = async (data: ProjectSchema) => {
     const cleanedData = {
       ...data,
       description: cleanDescription(data.description),
@@ -98,7 +97,7 @@ const ProjectDialog = ({
     } else if (typeof open === "number" && open >= 0) {
       update(open, cleanedData);
     }
-    setOpen(null);
+    await setOpen(null);
     onClearValues();
   };
 
@@ -113,7 +112,7 @@ const ProjectDialog = ({
         tools: cleanTools(project?.tools),
       });
     }
-  }, [open]);
+  }, [open, projectForm, projects]);
 
   const addFiles = (fileList: FileList | null) => {
     if (!fileList?.length) return;
@@ -223,7 +222,7 @@ const ProjectDialog = ({
                     <FormLabel>
                       Tools
                       <span className="text-muted-foreground text-xs">
-                        Separate each tool with a comma ","
+                        Separate each tool with a comma &quot;,&quot;
                       </span>
                     </FormLabel>
                     <FormControl>
@@ -327,7 +326,7 @@ const ProjectDialog = ({
                           (file: { file: File }, index: number) => {
                             const imageUrl = URL.createObjectURL(file.file);
                             return (
-                              <Dialog>
+                              <Dialog key={index}>
                                 <DialogTrigger asChild>
                                   <div
                                     key={index}

@@ -48,10 +48,9 @@ const SkillDialog = ({
     });
   };
 
-  const onOpenChange = (open: boolean) => {
+  const onOpenChange = async (open: boolean) => {
     if (!open) {
-      setOpen(null);
-      console.log("resetting");
+      await setOpen(null);
       onClearValues();
     }
   };
@@ -63,7 +62,7 @@ const SkillDialog = ({
     },
   });
 
-  const onSubmit = (data: SkillSchema) => {
+  const onSubmit = async (data: SkillSchema) => {
     if (!data.icon) {
       skillForm.setError("icon", { message: "Icon is required" });
       return;
@@ -76,7 +75,7 @@ const SkillDialog = ({
         name: data.name.trim(),
       });
     }
-    setOpen(null);
+    await setOpen(null);
     onClearValues();
   };
 
@@ -89,7 +88,7 @@ const SkillDialog = ({
         ...skill,
       });
     }
-  }, [open]);
+  }, [open, skillForm, skills]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>

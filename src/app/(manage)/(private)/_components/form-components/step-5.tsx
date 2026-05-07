@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormContext, type FieldArrayWithId } from "react-hook-form";
 import { type PortfolioFormValues } from "./schema";
 import { Button } from "@/components/ui/button";
 import {
-  ChevronLeft,
-  ChevronRight,
   FolderOpen,
   GitBranch,
   ImageIcon,
@@ -14,10 +12,9 @@ import {
   Trash2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { format } from "date-fns";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { Badge } from "@/components/ui/badge";
-import { buildImages, cleanTools, type CarouselImage } from "./helper";
+import { buildImages, cleanTools } from "./helper";
 import Link from "next/link";
 import {
   Dialog,
@@ -26,7 +23,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import Image from "next/image";
 import ImageCarousel from "./dialogs/image-carousel";
 
 function StepFive({
@@ -42,13 +38,13 @@ function StepFive({
     parseAsInteger,
   );
 
-  const handleAddProject = () => {
-    setProjectDialogOpen(-1);
+  const handleAddProject = async () => {
+    await setProjectDialogOpen(-1);
     form.clearErrors("projects");
   };
 
-  const handleEditProject = (index: number) => {
-    setProjectDialogOpen(index);
+  const handleEditProject = async (index: number) => {
+    await setProjectDialogOpen(index);
   };
 
   const isError = form.formState.errors.projects;

@@ -57,9 +57,9 @@ const ExperienceDialog = ({
     });
   };
 
-  const onOpenChange = (open: boolean) => {
+  const onOpenChange = async (open: boolean) => {
     if (!open) {
-      setOpen(null);
+      await setOpen(null);
       console.log("resetting");
       onClearValues();
     }
@@ -74,7 +74,7 @@ const ExperienceDialog = ({
 
   const isCurrent = experienceForm.watch("isCurrent");
 
-  const onSubmit = (data: ExperienceSchema) => {
+  const onSubmit = async (data: ExperienceSchema) => {
     if (!data.isCurrent) {
       if (!data.endDate) {
         experienceForm.setError("endDate", {
@@ -99,7 +99,7 @@ const ExperienceDialog = ({
     } else if (typeof open === "number" && open >= 0) {
       update(open, cleanedData);
     }
-    setOpen(null);
+    await setOpen(null);
     onClearValues();
   };
 
@@ -114,7 +114,7 @@ const ExperienceDialog = ({
         tools: cleanTools(experience?.tools),
       });
     }
-  }, [open]);
+  }, [open, experienceForm, experiences]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -185,7 +185,9 @@ const ExperienceDialog = ({
                           checked={field.value}
                           onCheckedChange={(e) => {
                             field.onChange(e);
-                            e && experienceForm.setValue("endDate", undefined);
+                            if (e) {
+                              experienceForm.setValue("endDate", undefined);
+                            }
                           }}
                         />
                       </FormControl>
@@ -239,7 +241,7 @@ const ExperienceDialog = ({
                     <FormLabel>
                       Tools{" "}
                       <span className="text-muted-foreground text-xs">
-                        Separate each tool with a comma ","
+                        Separate each tool with a comma &quot;,&quot;
                       </span>
                     </FormLabel>
                     <FormControl>
