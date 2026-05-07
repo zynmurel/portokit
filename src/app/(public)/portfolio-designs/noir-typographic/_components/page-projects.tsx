@@ -1,11 +1,11 @@
 import type { Portfolio, Project, ProjectImages } from "generated/prisma";
 import { format } from "date-fns";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import { ProjectGallery } from "./project-gallery";
 import { SectionLabel } from "./section-label";
 
 type ProjectWithImages = Project & { images: ProjectImages[] };
@@ -75,7 +75,19 @@ function ProjectRow({
   total: number;
 }) {
   const flip = index % 2 === 1;
-  const cover = project.mainImage ?? project.images[0]?.image ?? null;
+
+  const orderedImages = project.images
+    .slice()
+    .sort((a, b) => a.order - b.order)
+    .map((img) => img.image);
+
+  const galleryImages = Array.from(
+    new Set(
+      [project.mainImage ?? null, ...orderedImages].filter(
+        (src): src is string => Boolean(src),
+      ),
+    ),
+  );
 
   return (
     <article className="border-foreground/20 group hover:bg-foreground hover:text-background border-b transition-colors duration-300">
@@ -86,21 +98,7 @@ function ProjectRow({
             flip && "md:order-2",
           )}
         >
-          <div className="border-foreground/20 group-hover:border-background/30 bg-muted/40 relative aspect-16/10 w-full overflow-hidden border transition-colors duration-300">
-            {cover ? (
-              <Image
-                src={cover}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                sizes="(min-width: 1024px) 720px, (min-width: 640px) 60vw, 100vw"
-              />
-            ) : (
-              <div className="text-foreground/30 group-hover:text-background/40 flex size-full items-center justify-center font-mono text-xs tracking-[0.3em] uppercase">
-                No preview
-              </div>
-            )}
-          </div>
+          <ProjectGallery images={galleryImages} title={project.title} />
         </div>
 
         <div
