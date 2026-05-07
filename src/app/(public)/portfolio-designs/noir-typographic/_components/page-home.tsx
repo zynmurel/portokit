@@ -51,10 +51,10 @@ function PageHome({ profile }: { profile: Portfolio }) {
           <div className="flex w-full flex-col justify-center">
             <div className="text-foreground/70 flex flex-row items-center gap-5 font-mono text-xs tracking-widest uppercase sm:text-sm md:text-base">
               <div className="border-foreground/70 hidden w-8 border-b-2 sm:block" />{" "}
-              <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <div>{profile.role}</div>{" "}
                 <Dot className="hidden size-6 sm:block" />{" "}
-                <div className="hidden sm:block">{profile.location}</div>
+                <div className="text-[10px] sm:text-sm">{profile.location}</div>
               </div>
             </div>
 

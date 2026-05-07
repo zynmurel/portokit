@@ -353,7 +353,7 @@
 }
 
 .sunset-minimal {
-  --background: oklch(0.985 0.03 65);
+  --background: oklch(0.999 0.01 65);
   --foreground: oklch(0.15 0.03 65);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.03 65);

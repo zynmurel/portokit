@@ -5383,6 +5383,7 @@ export namespace Prisma {
     tiktok: string | null
     isPublished: boolean | null
     theme: string | null
+    design: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5407,6 +5408,7 @@ export namespace Prisma {
     tiktok: string | null
     isPublished: boolean | null
     theme: string | null
+    design: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5431,6 +5433,7 @@ export namespace Prisma {
     tiktok: number
     isPublished: number
     theme: number
+    design: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5457,6 +5460,7 @@ export namespace Prisma {
     tiktok?: true
     isPublished?: true
     theme?: true
+    design?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5481,6 +5485,7 @@ export namespace Prisma {
     tiktok?: true
     isPublished?: true
     theme?: true
+    design?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5505,6 +5510,7 @@ export namespace Prisma {
     tiktok?: true
     isPublished?: true
     theme?: true
+    design?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5601,7 +5607,8 @@ export namespace Prisma {
     instagram: string | null
     tiktok: string | null
     isPublished: boolean
-    theme: string | null
+    theme: string
+    design: string
     createdAt: Date
     updatedAt: Date
     _count: PortfolioCountAggregateOutputType | null
@@ -5643,6 +5650,7 @@ export namespace Prisma {
     tiktok?: boolean
     isPublished?: boolean
     theme?: boolean
+    design?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5675,6 +5683,7 @@ export namespace Prisma {
     tiktok?: boolean
     isPublished?: boolean
     theme?: boolean
+    design?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5700,6 +5709,7 @@ export namespace Prisma {
     tiktok?: boolean
     isPublished?: boolean
     theme?: boolean
+    design?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5725,11 +5735,12 @@ export namespace Prisma {
     tiktok?: boolean
     isPublished?: boolean
     theme?: boolean
+    design?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "image" | "userId" | "title" | "role" | "logo" | "name" | "slug" | "description" | "location" | "github" | "gitlab" | "linkedin" | "facebook" | "twitter" | "instagram" | "tiktok" | "isPublished" | "theme" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "image" | "userId" | "title" | "role" | "logo" | "name" | "slug" | "description" | "location" | "github" | "gitlab" | "linkedin" | "facebook" | "twitter" | "instagram" | "tiktok" | "isPublished" | "theme" | "design" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
   export type PortfolioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     experiences?: boolean | Portfolio$experiencesArgs<ExtArgs>
@@ -5777,7 +5788,8 @@ export namespace Prisma {
       instagram: string | null
       tiktok: string | null
       isPublished: boolean
-      theme: string | null
+      theme: string
+      design: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["portfolio"]>
@@ -6229,6 +6241,7 @@ export namespace Prisma {
     readonly tiktok: FieldRef<"Portfolio", 'String'>
     readonly isPublished: FieldRef<"Portfolio", 'Boolean'>
     readonly theme: FieldRef<"Portfolio", 'String'>
+    readonly design: FieldRef<"Portfolio", 'String'>
     readonly createdAt: FieldRef<"Portfolio", 'DateTime'>
     readonly updatedAt: FieldRef<"Portfolio", 'DateTime'>
   }
@@ -14762,6 +14775,7 @@ export namespace Prisma {
     tiktok: 'tiktok',
     isPublished: 'isPublished',
     theme: 'theme',
+    design: 'design',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -15231,7 +15245,8 @@ export namespace Prisma {
     instagram?: StringNullableFilter<"Portfolio"> | string | null
     tiktok?: StringNullableFilter<"Portfolio"> | string | null
     isPublished?: BoolFilter<"Portfolio"> | boolean
-    theme?: StringNullableFilter<"Portfolio"> | string | null
+    theme?: StringFilter<"Portfolio"> | string
+    design?: StringFilter<"Portfolio"> | string
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -15262,7 +15277,8 @@ export namespace Prisma {
     instagram?: SortOrderInput | SortOrder
     tiktok?: SortOrderInput | SortOrder
     isPublished?: SortOrder
-    theme?: SortOrderInput | SortOrder
+    theme?: SortOrder
+    design?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -15296,7 +15312,8 @@ export namespace Prisma {
     instagram?: StringNullableFilter<"Portfolio"> | string | null
     tiktok?: StringNullableFilter<"Portfolio"> | string | null
     isPublished?: BoolFilter<"Portfolio"> | boolean
-    theme?: StringNullableFilter<"Portfolio"> | string | null
+    theme?: StringFilter<"Portfolio"> | string
+    design?: StringFilter<"Portfolio"> | string
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -15327,7 +15344,8 @@ export namespace Prisma {
     instagram?: SortOrderInput | SortOrder
     tiktok?: SortOrderInput | SortOrder
     isPublished?: SortOrder
-    theme?: SortOrderInput | SortOrder
+    theme?: SortOrder
+    design?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PortfolioCountOrderByAggregateInput
@@ -15357,7 +15375,8 @@ export namespace Prisma {
     instagram?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     tiktok?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     isPublished?: BoolWithAggregatesFilter<"Portfolio"> | boolean
-    theme?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
+    theme?: StringWithAggregatesFilter<"Portfolio"> | string
+    design?: StringWithAggregatesFilter<"Portfolio"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
   }
@@ -16140,7 +16159,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -16171,7 +16191,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -16200,7 +16221,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -16231,7 +16253,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -16261,7 +16284,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16284,7 +16308,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16308,7 +16333,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17278,6 +17304,7 @@ export namespace Prisma {
     tiktok?: SortOrder
     isPublished?: SortOrder
     theme?: SortOrder
+    design?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17302,6 +17329,7 @@ export namespace Prisma {
     tiktok?: SortOrder
     isPublished?: SortOrder
     theme?: SortOrder
+    design?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17326,6 +17354,7 @@ export namespace Prisma {
     tiktok?: SortOrder
     isPublished?: SortOrder
     theme?: SortOrder
+    design?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18626,7 +18655,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceCreateNestedManyWithoutPortfolioInput
@@ -18655,7 +18685,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -18774,7 +18805,8 @@ export namespace Prisma {
     instagram?: StringNullableFilter<"Portfolio"> | string | null
     tiktok?: StringNullableFilter<"Portfolio"> | string | null
     isPublished?: BoolFilter<"Portfolio"> | boolean
-    theme?: StringNullableFilter<"Portfolio"> | string | null
+    theme?: StringFilter<"Portfolio"> | string
+    design?: StringFilter<"Portfolio"> | string
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
   }
@@ -19375,7 +19407,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -19405,7 +19438,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -19449,7 +19483,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -19479,7 +19514,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -19507,7 +19543,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -19537,7 +19574,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     education?: EducationUncheckedCreateNestedManyWithoutPortfolioInput
@@ -19581,7 +19619,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -19611,7 +19650,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     education?: EducationUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -19639,7 +19679,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -19669,7 +19710,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -19713,7 +19755,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -19743,7 +19786,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -19771,7 +19815,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -19801,7 +19846,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -19869,7 +19915,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -19899,7 +19946,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -19954,7 +20002,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -19984,7 +20033,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -20028,7 +20078,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -20058,7 +20109,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -20086,7 +20138,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
@@ -20116,7 +20169,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     experiences?: ExperienceUncheckedCreateNestedManyWithoutPortfolioInput
@@ -20160,7 +20214,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
@@ -20190,7 +20245,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -20322,7 +20378,8 @@ export namespace Prisma {
     instagram?: string | null
     tiktok?: string | null
     isPublished?: boolean
-    theme?: string | null
+    theme?: string
+    design?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20405,7 +20462,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUpdateManyWithoutPortfolioNestedInput
@@ -20434,7 +20492,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     experiences?: ExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -20463,7 +20522,8 @@ export namespace Prisma {
     instagram?: NullableStringFieldUpdateOperationsInput | string | null
     tiktok?: NullableStringFieldUpdateOperationsInput | string | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
-    theme?: NullableStringFieldUpdateOperationsInput | string | null
+    theme?: StringFieldUpdateOperationsInput | string
+    design?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

@@ -78,7 +78,8 @@ model Portfolio {
     instagram   String?
     tiktok      String?
     isPublished Boolean @default(false)
-    theme       String? @default("default")
+    theme       String  @default("default")
+    design      String  @default("noir-typographic")
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

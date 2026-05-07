@@ -39,7 +39,7 @@ function PageProjects({ profile }: { profile: ProfileWithRelations }) {
         <SectionLabel index="04" label="Projects" />
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-          <h2 className="col-span-1 text-5xl leading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
+          <h2 className="col-span-1 text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
             Selected
             <br />
             <span className={outlineText}>Work</span>

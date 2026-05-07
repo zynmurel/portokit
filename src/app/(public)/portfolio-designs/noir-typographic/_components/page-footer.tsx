@@ -41,7 +41,7 @@ function PageFooter({ profile }: { profile: Portfolio }) {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="col-span-1 flex flex-col gap-6 md:col-span-6 items-center md:items-start">
             <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
-              Thanks for scrolling
+              Made it to the bottom
             </span>
             <h2 className="text-4xl leading-[0.95] font-black tracking-tight uppercase sm:text-5xl md:text-6xl text-center md:text-left">
               {firstName ? (
@@ -53,7 +53,7 @@ function PageFooter({ profile }: { profile: Portfolio }) {
               <span className={outlineText}>{lastName}</span>
             </h2>
             {profile.description ? (
-              <code className="text-muted-foreground max-w-md text-sm text-center md:text-left">
+              <code className="text-muted-foreground max-w-md text-sm text-center md:text-left hidden">
                 {profile.description}
               </code>
             ) : null}
@@ -107,7 +107,7 @@ function PageFooter({ profile }: { profile: Portfolio }) {
 
         <div className="border-foreground/20 mt-16 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row">
           <code className="text-foreground/60 text-xs text-center md:text-left">
-            © {year} {profile.name}. All rights reserved.
+            © {year} <span className="capitalize">{profile.title}</span>. All rights reserved.
           </code>
           <code className="text-foreground/60 font-mono text-[10px] tracking-[0.3em] uppercase">
             {profile.location ? `${profile.location}` : ""}

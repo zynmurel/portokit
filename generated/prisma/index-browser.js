@@ -173,6 +173,7 @@ exports.Prisma.PortfolioScalarFieldEnum = {
   tiktok: 'tiktok',
   isPublished: 'isPublished',
   theme: 'theme',
+  design: 'design',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

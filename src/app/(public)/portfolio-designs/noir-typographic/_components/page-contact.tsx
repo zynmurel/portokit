@@ -61,7 +61,7 @@ function PageContact({ profile }: { profile: Portfolio }) {
 
   return (
     <div id="contact">
-      <section className="mx-auto w-full max-w-7xl px-6 pb-0 sm:px-10 sm:pb-8">
+      <section className="mx-auto w-full max-w-7xl  px-6 pb-16 sm:px-10 sm:pb-28">
         {/* <SectionLabel index="05" label="Contact" /> */}
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
@@ -76,7 +76,7 @@ function PageContact({ profile }: { profile: Portfolio }) {
         </div>
 
         <div className="border-foreground/20 mt-16 grid grid-cols-1 border-t md:grid-cols-12">
-          <aside className="border-foreground/20 col-span-1 flex flex-col gap-8 border-b p-6 sm:p-10 md:col-span-5 md:border-r md:border-b-0">
+          <aside className="border-foreground/20 col-span-1 flex flex-col gap-8 border-b p-0 py-10 sm:p-10 md:col-span-5 md:border-r md:border-b-0">
             <div className="flex flex-col gap-3">
               <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
                 Reach out
@@ -120,7 +120,7 @@ function PageContact({ profile }: { profile: Portfolio }) {
 
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="col-span-1 flex flex-col gap-6 p-6 sm:p-10 md:col-span-7"
+            className="col-span-1 flex flex-col gap-6 p-0 py-10 sm:p-10 md:col-span-7"
             noValidate
           >
             <FieldLabel label="Name" error={errors.name?.message}>
