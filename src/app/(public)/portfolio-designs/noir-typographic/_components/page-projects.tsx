@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import { FadeIn } from "./motion-primitives";
 import { ProjectGallery } from "./project-gallery";
 import { SectionLabel } from "./section-label";
 
@@ -36,18 +37,33 @@ function PageProjects({ profile }: { profile: ProfileWithRelations }) {
   return (
     <div id="projects">
       <section className="mx-auto w-full max-w-7xl px-6 pb-0 sm:px-10 sm:pb-8">
-        <SectionLabel index="04" label="Projects" />
+        <FadeIn direction="right" amount={0.5}>
+          <SectionLabel index="04" label="Projects" />
+        </FadeIn>
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-          <h2 className="col-span-1 text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
-            Selected
-            <br />
-            <span className={outlineText}>Work</span>
-          </h2>
-          <code className="text-muted-foreground col-span-1 max-w-md text-base md:col-span-4 md:mb-2">
-            A collection of products, prototypes, and experiments &mdash; the
-            things I&rsquo;ve shipped, designed, and tinkered on.
-          </code>
+          <FadeIn
+            direction="up"
+            className="col-span-1 md:col-span-8"
+            amount={0.4}
+          >
+            <h2 className="text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:text-6xl lg:text-7xl">
+              Selected
+              <br />
+              <span className={outlineText}>Work</span>
+            </h2>
+          </FadeIn>
+          <FadeIn
+            direction="left"
+            delay={0.15}
+            className="col-span-1 md:col-span-4 md:mb-2"
+            amount={0.4}
+          >
+            <code className="text-muted-foreground block max-w-md text-base">
+              A collection of products, prototypes, and experiments &mdash; the
+              things I&rsquo;ve shipped, designed, and tinkered on.
+            </code>
+          </FadeIn>
         </div>
 
         <div className="border-foreground/20 mt-16 flex flex-col border-t">
@@ -92,16 +108,23 @@ function ProjectRow({
   return (
     <article className="border-foreground/20 group hover:bg-foreground hover:text-background border-b transition-colors duration-300">
       <div className="grid grid-cols-1 gap-8 p-6 px-0 lg:px-10 sm:py-10 lg:grid-cols-12 md:gap-12">
-        <div
+        <FadeIn
+          direction={flip ? "left" : "right"}
+          amount={0.2}
+          duration={0.8}
           className={cn(
             "col-span-1 md:col-span-7",
             flip && "md:order-2",
           )}
         >
           <ProjectGallery images={galleryImages} title={project.title} />
-        </div>
+        </FadeIn>
 
-        <div
+        <FadeIn
+          direction={flip ? "right" : "left"}
+          delay={0.1}
+          amount={0.2}
+          duration={0.8}
           className={cn(
             "col-span-1 flex flex-col gap-5 md:col-span-5",
             flip && "md:order-1",
@@ -165,7 +188,7 @@ function ProjectRow({
               ) : null}
             </div>
           ) : null}
-        </div>
+        </FadeIn>
       </div>
     </article>
   );

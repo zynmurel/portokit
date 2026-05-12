@@ -5,7 +5,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <NextThemeProvider
       storageKey="portfolio-theme-public"
-      defaultTheme="light"
+      defaultTheme="dark"
       themes={[
         "light",
         "dark",

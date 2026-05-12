@@ -2,6 +2,11 @@ import type { Portfolio, ProfessionalTraits, Skill } from "generated/prisma";
 import Image from "next/image";
 import React from "react";
 import { cn } from "@/lib/utils";
+import {
+  FadeIn,
+  StaggerItemLi,
+  StaggerUl,
+} from "./motion-primitives";
 import { SectionLabel } from "./section-label";
 
 type ProfileWithRelations = Portfolio & {
@@ -31,26 +36,43 @@ function CoreStrengths({ traits }: { traits: ProfessionalTraits[] }) {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 sm:pb-28">
-      <SectionLabel index="01" label="Core Strengths" />
+      <FadeIn direction="right" amount={0.5}>
+        <SectionLabel index="01" label="Core Strengths" />
+      </FadeIn>
 
       <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-        <h2 className="col-span-1 text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
-          What I
-          <br />
-          <span className={cn("ml-0", outlineText)}>Bring</span> to the table
-        </h2>
-        <code className="text-muted-foreground col-span-1 max-w-md text-base md:col-span-4 md:mb-2">
-          A blend of mindset, discipline, and craft &mdash; the qualities that
-          shape how I approach every line of code.
-        </code>
+        <FadeIn direction="up" className="col-span-1 md:col-span-8" amount={0.4}>
+          <h2 className="text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:text-6xl lg:text-7xl">
+            What I
+            <br />
+            <span className={cn("ml-0", outlineText)}>Bring</span> to the table
+          </h2>
+        </FadeIn>
+        <FadeIn
+          direction="left"
+          delay={0.15}
+          className="col-span-1 md:col-span-4 md:mb-2"
+          amount={0.4}
+        >
+          <code className="text-muted-foreground block max-w-md text-base">
+            A blend of mindset, discipline, and craft &mdash; the qualities that
+            shape how I approach every line of code.
+          </code>
+        </FadeIn>
       </div>
 
-      <ul className="border-foreground/20 mt-16 grid grid-cols-1 border-t md:grid-cols-2">
+      <StaggerUl
+        staggerChildren={0.12}
+        delayChildren={0.1}
+        amount={0.1}
+        className="border-foreground/20 mt-16 grid grid-cols-1 border-t md:grid-cols-2"
+      >
         {traits.map((trait, idx) => {
           const isLeft = idx % 2 === 0;
           return (
-            <li
+            <StaggerItemLi
               key={trait.id}
+              direction={isLeft ? "right" : "left"}
               className={cn(
                 "border-foreground/20 group hover:bg-foreground hover:text-background relative flex flex-col gap-6 border-b p-8 px-0 transition-colors duration-300 sm:px-8 md:p-12",
                 !isLeft && "md:border-l",
@@ -68,10 +90,10 @@ function CoreStrengths({ traits }: { traits: ProfessionalTraits[] }) {
               <p className="text-muted-foreground group-hover:text-background/70 max-w-md text-sm leading-relaxed transition-colors duration-300">
                 {trait.description}
               </p>
-            </li>
+            </StaggerItemLi>
           );
         })}
-      </ul>
+      </StaggerUl>
     </section>
   );
 }
@@ -81,24 +103,41 @@ function TechnicalSkills({ skills }: { skills: Skill[] }) {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 sm:pb-28">
-      <SectionLabel index="02" label="Technical Skills" />
+      <FadeIn direction="right" amount={0.5}>
+        <SectionLabel index="02" label="Technical Skills" />
+      </FadeIn>
 
       <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-        <h2 className="col-span-1 text-4xl sm:text-5xlleading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
-          Tools of
-          <br />
-          the <span className={outlineText}>Trade</span>
-        </h2>
-        <code className="text-muted-foreground col-span-1 max-w-md text-base md:col-span-4 md:mb-2">
-          The technologies I reach for daily &mdash; from frontend frameworks to
-          backend infrastructure and the in-betweens.
-        </code>
+        <FadeIn direction="up" className="col-span-1 md:col-span-8" amount={0.4}>
+          <h2 className="text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:text-6xl lg:text-7xl">
+            Tools of
+            <br />
+            the <span className={outlineText}>Trade</span>
+          </h2>
+        </FadeIn>
+        <FadeIn
+          direction="left"
+          delay={0.15}
+          className="col-span-1 md:col-span-4 md:mb-2"
+          amount={0.4}
+        >
+          <code className="text-muted-foreground block max-w-md text-base">
+            The technologies I reach for daily &mdash; from frontend frameworks
+            to backend infrastructure and the in-betweens.
+          </code>
+        </FadeIn>
       </div>
 
-      <ul className="border-foreground/20 mt-16 grid grid-cols-2 border-t border-l md:grid-cols-3 lg:grid-cols-4">
+      <StaggerUl
+        staggerChildren={0.05}
+        delayChildren={0.05}
+        amount={0.05}
+        className="border-foreground/20 mt-16 grid grid-cols-2 border-t border-l md:grid-cols-3 lg:grid-cols-4"
+      >
         {skills.map((skill, idx) => (
-          <li
+          <StaggerItemLi
             key={skill.id}
+            direction="scale"
             className="border-foreground/20 group hover:bg-foreground hover:text-background relative flex flex-col justify-between gap-5 border-r border-b p-4 transition-colors duration-300 sm:p-6"
           >
             <div className="flex w-full items-center justify-between">
@@ -122,9 +161,9 @@ function TechnicalSkills({ skills }: { skills: Skill[] }) {
             <div className="text-sm leading-none font-black tracking-tight uppercase sm:text-lg md:text-xl lg:text-2xl">
               {skill.name}
             </div>
-          </li>
+          </StaggerItemLi>
         ))}
-      </ul>
+      </StaggerUl>
     </section>
   );
 }

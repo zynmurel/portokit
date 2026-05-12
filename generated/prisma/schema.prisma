@@ -67,6 +67,7 @@ model Portfolio {
   role        String
   logo        String
   name        String
+  email       String  @default("")
   slug        String  @unique
   description String?
   location    String?

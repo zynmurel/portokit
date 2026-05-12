@@ -5371,6 +5371,7 @@ export namespace Prisma {
     role: string | null
     logo: string | null
     name: string | null
+    email: string | null
     slug: string | null
     description: string | null
     location: string | null
@@ -5396,6 +5397,7 @@ export namespace Prisma {
     role: string | null
     logo: string | null
     name: string | null
+    email: string | null
     slug: string | null
     description: string | null
     location: string | null
@@ -5421,6 +5423,7 @@ export namespace Prisma {
     role: number
     logo: number
     name: number
+    email: number
     slug: number
     description: number
     location: number
@@ -5448,6 +5451,7 @@ export namespace Prisma {
     role?: true
     logo?: true
     name?: true
+    email?: true
     slug?: true
     description?: true
     location?: true
@@ -5473,6 +5477,7 @@ export namespace Prisma {
     role?: true
     logo?: true
     name?: true
+    email?: true
     slug?: true
     description?: true
     location?: true
@@ -5498,6 +5503,7 @@ export namespace Prisma {
     role?: true
     logo?: true
     name?: true
+    email?: true
     slug?: true
     description?: true
     location?: true
@@ -5596,6 +5602,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email: string
     slug: string
     description: string | null
     location: string | null
@@ -5638,6 +5645,7 @@ export namespace Prisma {
     role?: boolean
     logo?: boolean
     name?: boolean
+    email?: boolean
     slug?: boolean
     description?: boolean
     location?: boolean
@@ -5671,6 +5679,7 @@ export namespace Prisma {
     role?: boolean
     logo?: boolean
     name?: boolean
+    email?: boolean
     slug?: boolean
     description?: boolean
     location?: boolean
@@ -5697,6 +5706,7 @@ export namespace Prisma {
     role?: boolean
     logo?: boolean
     name?: boolean
+    email?: boolean
     slug?: boolean
     description?: boolean
     location?: boolean
@@ -5723,6 +5733,7 @@ export namespace Prisma {
     role?: boolean
     logo?: boolean
     name?: boolean
+    email?: boolean
     slug?: boolean
     description?: boolean
     location?: boolean
@@ -5740,7 +5751,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "image" | "userId" | "title" | "role" | "logo" | "name" | "slug" | "description" | "location" | "github" | "gitlab" | "linkedin" | "facebook" | "twitter" | "instagram" | "tiktok" | "isPublished" | "theme" | "design" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "image" | "userId" | "title" | "role" | "logo" | "name" | "email" | "slug" | "description" | "location" | "github" | "gitlab" | "linkedin" | "facebook" | "twitter" | "instagram" | "tiktok" | "isPublished" | "theme" | "design" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
   export type PortfolioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     experiences?: boolean | Portfolio$experiencesArgs<ExtArgs>
@@ -5777,6 +5788,7 @@ export namespace Prisma {
       role: string
       logo: string
       name: string
+      email: string
       slug: string
       description: string | null
       location: string | null
@@ -6229,6 +6241,7 @@ export namespace Prisma {
     readonly role: FieldRef<"Portfolio", 'String'>
     readonly logo: FieldRef<"Portfolio", 'String'>
     readonly name: FieldRef<"Portfolio", 'String'>
+    readonly email: FieldRef<"Portfolio", 'String'>
     readonly slug: FieldRef<"Portfolio", 'String'>
     readonly description: FieldRef<"Portfolio", 'String'>
     readonly location: FieldRef<"Portfolio", 'String'>
@@ -14789,6 +14802,7 @@ export namespace Prisma {
     role: 'role',
     logo: 'logo',
     name: 'name',
+    email: 'email',
     slug: 'slug',
     description: 'description',
     location: 'location',
@@ -15262,6 +15276,7 @@ export namespace Prisma {
     role?: StringFilter<"Portfolio"> | string
     logo?: StringFilter<"Portfolio"> | string
     name?: StringFilter<"Portfolio"> | string
+    email?: StringFilter<"Portfolio"> | string
     slug?: StringFilter<"Portfolio"> | string
     description?: StringNullableFilter<"Portfolio"> | string | null
     location?: StringNullableFilter<"Portfolio"> | string | null
@@ -15294,6 +15309,7 @@ export namespace Prisma {
     role?: SortOrder
     logo?: SortOrder
     name?: SortOrder
+    email?: SortOrder
     slug?: SortOrder
     description?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
@@ -15330,6 +15346,7 @@ export namespace Prisma {
     role?: StringFilter<"Portfolio"> | string
     logo?: StringFilter<"Portfolio"> | string
     name?: StringFilter<"Portfolio"> | string
+    email?: StringFilter<"Portfolio"> | string
     description?: StringNullableFilter<"Portfolio"> | string | null
     location?: StringNullableFilter<"Portfolio"> | string | null
     github?: StringNullableFilter<"Portfolio"> | string | null
@@ -15361,6 +15378,7 @@ export namespace Prisma {
     role?: SortOrder
     logo?: SortOrder
     name?: SortOrder
+    email?: SortOrder
     slug?: SortOrder
     description?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
@@ -15392,6 +15410,7 @@ export namespace Prisma {
     role?: StringWithAggregatesFilter<"Portfolio"> | string
     logo?: StringWithAggregatesFilter<"Portfolio"> | string
     name?: StringWithAggregatesFilter<"Portfolio"> | string
+    email?: StringWithAggregatesFilter<"Portfolio"> | string
     slug?: StringWithAggregatesFilter<"Portfolio"> | string
     description?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     location?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
@@ -16186,6 +16205,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -16218,6 +16238,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -16248,6 +16269,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16280,6 +16302,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16311,6 +16334,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -16335,6 +16359,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16360,6 +16385,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17344,6 +17370,7 @@ export namespace Prisma {
     role?: SortOrder
     logo?: SortOrder
     name?: SortOrder
+    email?: SortOrder
     slug?: SortOrder
     description?: SortOrder
     location?: SortOrder
@@ -17369,6 +17396,7 @@ export namespace Prisma {
     role?: SortOrder
     logo?: SortOrder
     name?: SortOrder
+    email?: SortOrder
     slug?: SortOrder
     description?: SortOrder
     location?: SortOrder
@@ -17394,6 +17422,7 @@ export namespace Prisma {
     role?: SortOrder
     logo?: SortOrder
     name?: SortOrder
+    email?: SortOrder
     slug?: SortOrder
     description?: SortOrder
     location?: SortOrder
@@ -18702,6 +18731,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -18732,6 +18762,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -18852,6 +18883,7 @@ export namespace Prisma {
     role?: StringFilter<"Portfolio"> | string
     logo?: StringFilter<"Portfolio"> | string
     name?: StringFilter<"Portfolio"> | string
+    email?: StringFilter<"Portfolio"> | string
     slug?: StringFilter<"Portfolio"> | string
     description?: StringNullableFilter<"Portfolio"> | string | null
     location?: StringNullableFilter<"Portfolio"> | string | null
@@ -19460,6 +19492,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19491,6 +19524,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19536,6 +19570,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19567,6 +19602,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19596,6 +19632,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19627,6 +19664,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19672,6 +19710,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19703,6 +19742,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19732,6 +19772,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19763,6 +19804,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19808,6 +19850,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19839,6 +19882,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19868,6 +19912,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19899,6 +19944,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -19968,6 +20014,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19999,6 +20046,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20055,6 +20103,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -20086,6 +20135,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -20131,6 +20181,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20162,6 +20213,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20191,6 +20243,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -20222,6 +20275,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -20267,6 +20321,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20298,6 +20353,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20439,6 +20495,7 @@ export namespace Prisma {
     role: string
     logo: string
     name: string
+    email?: string
     slug: string
     description?: string | null
     location?: string | null
@@ -20523,6 +20580,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20553,6 +20611,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20583,6 +20642,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     logo?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null

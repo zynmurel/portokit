@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SlideDownHeader } from "./motion-primitives";
 import { ThemeToggle } from "./theme-button";
 
 const menuItems = [
@@ -22,7 +23,7 @@ const menuItems = [
 
 function PageHeader({ profile }: { profile: Portfolio }) {
   return (
-    <header className="bg-background/95 border-foreground/10 fixed top-0 left-0 z-50 w-full border-b shadow-sm backdrop-blur-md">
+    <SlideDownHeader className="bg-background/95 border-foreground/10 fixed top-0 left-0 z-50 w-full border-b shadow-sm backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl flex-row items-center justify-between gap-4 px-6 sm:h-20 sm:gap-6 sm:px-10 md:h-24">
         <div className="flex flex-row items-center gap-8 lg:gap-14">
           <Link href="#home" className="shrink-0">
@@ -101,7 +102,7 @@ function PageHeader({ profile }: { profile: Portfolio }) {
           </Sheet>
         </div>
       </div>
-    </header>
+    </SlideDownHeader>
   );
 }
 

@@ -161,6 +161,7 @@ exports.Prisma.PortfolioScalarFieldEnum = {
   role: 'role',
   logo: 'logo',
   name: 'name',
+  email: 'email',
   slug: 'slug',
   description: 'description',
   location: 'location',

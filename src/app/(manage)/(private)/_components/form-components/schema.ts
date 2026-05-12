@@ -8,6 +8,7 @@ export const detailsSchema = z.object({
   description: z.string().min(20, "Summary should be at least 20 characters"),
   role: z.string().min(2, "Primary role is required"),
   location: z.string().min(2, "Location is required"),
+  email: z.string().email("Please enter a valid email"),
   github: z.string().url("Use a valid URL").optional().or(z.literal("")),
   gitlab: z.string().url("Use a valid URL").optional().or(z.literal("")),
   linkedin: z.string().url("Use a valid URL").optional().or(z.literal("")),

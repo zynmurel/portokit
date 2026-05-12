@@ -227,6 +227,7 @@ const DetailsContent = ({
           linkedin: portfolio.linkedin ?? undefined,
           facebook: portfolio.facebook ?? undefined,
           instagram: portfolio.instagram ?? undefined,
+          email: portfolio.email ?? "",
           image: portfolio.image,
         }}
       />

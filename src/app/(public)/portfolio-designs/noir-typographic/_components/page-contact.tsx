@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Portfolio } from "generated/prisma";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -17,6 +17,7 @@ import {
 import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { api } from "@/trpc/react";
+import { FadeIn, Stagger, StaggerItem } from "./motion-primitives";
 
 const outlineText =
   "text-background [text-shadow:-2px_0_var(--foreground),2px_0_var(--foreground),0_-2px_var(--foreground),0_2px_var(--foreground)]";
@@ -61,23 +62,37 @@ function PageContact({ profile }: { profile: Portfolio }) {
 
   return (
     <div id="contact">
-      <section className="mx-auto w-full max-w-7xl  px-6 pb-16 sm:px-10 sm:pb-28">
+      <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 sm:pb-28">
         {/* <SectionLabel index="05" label="Contact" /> */}
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-          <h2 className="col-span-1 text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
-            Let&rsquo;s
-            <span className={outlineText}> Talk</span>
-          </h2>
-          <code className="text-muted-foreground col-span-1 max-w-md text-base md:col-span-4 md:mb-2">
-            Have a project, a question, or just want to say hi? Drop a message
-            below &mdash; I&rsquo;ll get back to you.
-          </code>
+          <FadeIn direction="up" className="col-span-1 md:col-span-8" amount={0.4}>
+            <h2 className="text-4xl leading-[1.1] font-black tracking-tight uppercase sm:text-5xl md:text-6xl lg:text-7xl">
+              Let&rsquo;s
+              <span className={outlineText}> Talk</span>
+            </h2>
+          </FadeIn>
+          <FadeIn
+            direction="left"
+            delay={0.15}
+            className="col-span-1 md:col-span-4 md:mb-2"
+            amount={0.4}
+          >
+            <code className="text-muted-foreground block max-w-md text-base">
+              Have a project, a question, or just want to say hi? Drop a message
+              below &mdash; I&rsquo;ll get back to you.
+            </code>
+          </FadeIn>
         </div>
 
         <div className="border-foreground/20 mt-16 grid grid-cols-1 border-t md:grid-cols-12">
-          <aside className="border-foreground/20 col-span-1 flex flex-col gap-8 border-b p-0 py-10 sm:p-10 md:col-span-5 md:border-r md:border-b-0">
-            <div className="flex flex-col gap-3">
+          <Stagger
+            staggerChildren={0.12}
+            delayChildren={0.1}
+            amount={0.15}
+            className="border-foreground/20 col-span-1 flex flex-col gap-8 border-b p-0 py-10 sm:p-10 md:col-span-5 md:border-r md:border-b-0"
+          >
+            <StaggerItem direction="right" className="flex flex-col gap-3">
               <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
                 Reach out
               </span>
@@ -86,81 +101,99 @@ function PageContact({ profile }: { profile: Portfolio }) {
                 <br />
                 <span className={outlineText}>opportunities</span>
               </p>
-            </div>
+            </StaggerItem>
 
-            {profile.location ? (
-              <div className="text-foreground/70 flex flex-row items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase">
-                <MapPin className="size-4" />
-                {profile.location}
-              </div>
-            ) : null}
-
-            {socialLinks.length > 0 ? (
-              <div className="flex flex-col gap-3">
-                <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
-                  Connect
-                </span>
-                <div className="flex flex-row flex-wrap gap-2">
-                  {socialLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href || ""}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={link.label}
-                      className="border-foreground/30 hover:bg-foreground hover:text-background flex aspect-square size-11 items-center justify-center border transition-colors duration-300"
-                    >
-                      <link.icon className="size-4" />
-                    </Link>
-                  ))}
+            <StaggerItem direction="right" className="flex flex-col gap-3">
+              {profile.location ? (
+                <div className="text-foreground/70 flex flex-row items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase">
+                  <MapPin className="size-4" />
+                  {profile.location}
                 </div>
+              ) : null}
+
+              <div className="text-foreground/70 flex flex-row items-center gap-3 font-mono text-xs tracking-[0.2em]">
+                <Mail className="size-4" />
+                {profile.email}
               </div>
-            ) : null}
-          </aside>
+            </StaggerItem>
 
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="col-span-1 flex flex-col gap-6 p-0 py-10 sm:p-10 md:col-span-7"
-            noValidate
+            <StaggerItem direction="right" className="flex flex-col gap-3">
+              <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
+                Connect
+              </span>
+              <div className="flex flex-row flex-wrap gap-2">
+                <Link
+                  href={`mailto:${profile.email}`}
+                  className="border-foreground/30 hover:bg-foreground hover:text-background flex aspect-square size-11 items-center justify-center border transition-colors duration-300"
+                >
+                  <Mail className="size-5" />
+                </Link>
+                {socialLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href || ""}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={link.label}
+                    className="border-foreground/30 hover:bg-foreground hover:text-background flex aspect-square size-11 items-center justify-center border transition-colors duration-300"
+                  >
+                    <link.icon className="size-4" />
+                  </Link>
+                ))}
+              </div>
+            </StaggerItem>
+          </Stagger>
+
+          <FadeIn
+            direction="left"
+            delay={0.2}
+            amount={0.15}
+            className="col-span-1 md:col-span-7"
           >
-            <FieldLabel label="Name" error={errors.name?.message}>
-              <input
-                {...form.register("name")}
-                type="text"
-                autoComplete="name"
-                placeholder="Your name"
-                className={fieldClass}
-              />
-            </FieldLabel>
-
-            <FieldLabel label="Email" error={errors.email?.message}>
-              <input
-                {...form.register("email")}
-                type="email"
-                autoComplete="email"
-                placeholder="you@example.com"
-                className={fieldClass}
-              />
-            </FieldLabel>
-
-            <FieldLabel label="Message" error={errors.message?.message}>
-              <textarea
-                {...form.register("message")}
-                rows={6}
-                placeholder="Tell me about your idea, role, or anything on your mind."
-                className={cn(fieldClass, "resize-none")}
-              />
-            </FieldLabel>
-
-            <button
-              type="submit"
-              disabled={messageMe.isPending}
-              className="border-foreground hover:bg-foreground hover:text-background mt-2 inline-flex h-14 cursor-pointer items-center justify-center gap-3 border-2 px-8 font-mono text-xs tracking-[0.3em] uppercase transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50"
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-6 p-0 py-10 sm:p-10"
+              noValidate
             >
-              <ArrowUpRight className="size-4" />
-              {messageMe.isPending ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+              <FieldLabel label="Name" error={errors.name?.message}>
+                <input
+                  {...form.register("name")}
+                  type="text"
+                  autoComplete="name"
+                  placeholder="Your name"
+                  className={fieldClass}
+                />
+              </FieldLabel>
+
+              <FieldLabel label="Email" error={errors.email?.message}>
+                <input
+                  {...form.register("email")}
+                  type="email"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  className={fieldClass}
+                />
+              </FieldLabel>
+
+              <FieldLabel label="Message" error={errors.message?.message}>
+                <textarea
+                  {...form.register("message")}
+                  rows={6}
+                  placeholder="Tell me about your idea, role, or anything on your mind."
+                  className={cn(fieldClass, "resize-none")}
+                />
+              </FieldLabel>
+
+              <button
+                type="submit"
+                disabled={messageMe.isPending}
+                className="border-foreground hover:bg-foreground hover:text-background mt-2 inline-flex h-14 cursor-pointer items-center justify-center gap-3 border-2 px-8 font-mono text-xs tracking-[0.3em] uppercase transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <ArrowUpRight className="size-4" />
+                {messageMe.isPending ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </FadeIn>
         </div>
       </section>
     </div>
@@ -184,7 +217,7 @@ function FieldLabel({
       <span className="text-foreground/60 flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase">
         <span>{label}</span>
         {error ? (
-          <span className="text-destructive normal-case tracking-normal">
+          <span className="text-destructive tracking-normal normal-case">
             {error}
           </span>
         ) : null}

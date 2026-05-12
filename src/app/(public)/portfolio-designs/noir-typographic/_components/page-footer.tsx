@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
+import { FadeIn, Stagger, StaggerItem } from "./motion-primitives";
 
 const outlineText =
   "text-background [text-shadow:-2px_0_var(--foreground),2px_0_var(--foreground),0_-2px_var(--foreground),0_2px_var(--foreground)]";
@@ -38,8 +39,16 @@ function PageFooter({ profile }: { profile: Portfolio }) {
   return (
     <footer className="border-foreground/20 mt-10 border-t">
       <div className="mx-auto w-full max-w-7xl px-6 pt-16 pb-10 sm:px-10 sm:pt-24">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          <div className="col-span-1 flex flex-col gap-6 md:col-span-6 items-center md:items-start">
+        <Stagger
+          staggerChildren={0.12}
+          delayChildren={0.05}
+          amount={0.15}
+          className="grid grid-cols-1 gap-10 md:grid-cols-12"
+        >
+          <StaggerItem
+            direction="up"
+            className="col-span-1 flex flex-col gap-6 md:col-span-6 items-center md:items-start"
+          >
             <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
               Made it to the bottom
             </span>
@@ -57,9 +66,12 @@ function PageFooter({ profile }: { profile: Portfolio }) {
                 {profile.description}
               </code>
             ) : null}
-          </div>
+          </StaggerItem>
 
-          <div className="col-span-1 flex flex-col items-center gap-4 md:items-start md:col-span-3">
+          <StaggerItem
+            direction="up"
+            className="col-span-1 flex flex-col items-center gap-4 md:items-start md:col-span-3"
+          >
             <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
               [ Sections ]
             </span>
@@ -75,9 +87,12 @@ function PageFooter({ profile }: { profile: Portfolio }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
-          <div className="col-span-1 flex flex-col items-center gap-4 md:items-start md:col-span-3">
+          <StaggerItem
+            direction="up"
+            className="col-span-1 flex flex-col items-center gap-4 md:items-start md:col-span-3"
+          >
             <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
               [ Connect ]
             </span>
@@ -102,17 +117,22 @@ function PageFooter({ profile }: { profile: Portfolio }) {
                 &mdash;
               </span>
             )}
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
-        <div className="border-foreground/20 mt-16 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row">
+        <FadeIn
+          direction="fade"
+          delay={0.3}
+          amount={0.4}
+          className="border-foreground/20 mt-16 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row"
+        >
           <code className="text-foreground/60 text-xs text-center md:text-left">
             © {year} <span className="capitalize">{profile.title}</span>. All rights reserved.
           </code>
           <code className="text-foreground/60 font-mono text-[10px] tracking-[0.3em] uppercase">
             {profile.location ? `${profile.location}` : ""}
           </code>
-        </div>
+        </FadeIn>
       </div>
     </footer>
   );

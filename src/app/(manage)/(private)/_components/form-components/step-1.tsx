@@ -114,6 +114,18 @@ function StepOne() {
       />
       <FormField
         control={form.control}
+        name="details.email"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input placeholder="john.doe@example.com" {...field} />
+            </FormControl>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
         name="details.description"
         render={({ field }) => (
           <FormItem className="md:col-span-2">

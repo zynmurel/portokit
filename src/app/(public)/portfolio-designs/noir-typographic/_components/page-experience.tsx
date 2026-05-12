@@ -1,6 +1,11 @@
 import type { Experience, Portfolio } from "generated/prisma";
 import { format } from "date-fns";
 import React from "react";
+import {
+  FadeIn,
+  StaggerItemLi,
+  StaggerOl,
+} from "./motion-primitives";
 import { SectionLabel } from "./section-label";
 
 type ProfileWithRelations = Portfolio & {
@@ -48,24 +53,45 @@ function PageExperience({ profile }: { profile: ProfileWithRelations }) {
   return (
     <div id="experience">
       <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 sm:pb-28">
-        <SectionLabel index="03" label="Experience" />
+        <FadeIn direction="right" amount={0.5}>
+          <SectionLabel index="03" label="Experience" />
+        </FadeIn>
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-          <h2 className="col-span-1 text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:col-span-8 md:text-6xl lg:text-7xl">
-            Where I&rsquo;ve
-            <br />
-            <span className={outlineText}>Worked</span>
-          </h2>
-          <code className="text-muted-foreground col-span-1 max-w-md text-base md:col-span-4 md:mb-2">
-            A timeline of the teams, tools, and problems that shaped how I build
-            today.
-          </code>
+          <FadeIn
+            direction="up"
+            className="col-span-1 md:col-span-8"
+            amount={0.4}
+          >
+            <h2 className="text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:text-6xl lg:text-7xl">
+              Where I&rsquo;ve
+              <br />
+              <span className={outlineText}>Worked</span>
+            </h2>
+          </FadeIn>
+          <FadeIn
+            direction="left"
+            delay={0.15}
+            className="col-span-1 md:col-span-4 md:mb-2"
+            amount={0.4}
+          >
+            <code className="text-muted-foreground block max-w-md text-base">
+              A timeline of the teams, tools, and problems that shaped how I
+              build today.
+            </code>
+          </FadeIn>
         </div>
 
-        <ol className="border-foreground/20 mt-16 flex flex-col border-t">
+        <StaggerOl
+          staggerChildren={0.15}
+          delayChildren={0.1}
+          amount={0.05}
+          className="border-foreground/20 mt-16 flex flex-col border-t"
+        >
           {experiences.map((exp, idx) => (
-            <li
+            <StaggerItemLi
               key={exp.id}
+              direction="up"
               className="border-foreground/20 group hover:bg-foreground hover:text-background border-b transition-colors duration-300"
             >
               <div className="grid grid-cols-1 gap-8  p-6 px-0 lg:px-10 sm:py-10 md:grid-cols-12">
@@ -134,9 +160,9 @@ function PageExperience({ profile }: { profile: ProfileWithRelations }) {
                   ) : null}
                 </div>
               </div>
-            </li>
+            </StaggerItemLi>
           ))}
-        </ol>
+        </StaggerOl>
       </section>
     </div>
   );
