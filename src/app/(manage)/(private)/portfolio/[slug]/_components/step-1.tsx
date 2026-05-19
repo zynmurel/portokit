@@ -164,6 +164,8 @@ const DetailsContent = ({
           <DetailField label="Title" value={portfolio.title} />
           <DetailField label="Slug" value={portfolio.slug} />
           <DetailField label="Role" value={portfolio.role} />
+          <DetailField label="Email" value={portfolio.email} />
+          <DetailField label="Phone" value={portfolio.phoneNumber} />
           <DetailField
             label="Location"
             value={portfolio.location}
@@ -228,6 +230,7 @@ const DetailsContent = ({
           facebook: portfolio.facebook ?? undefined,
           instagram: portfolio.instagram ?? undefined,
           email: portfolio.email ?? "",
+          phoneNumber: portfolio.phoneNumber ?? "",
           image: portfolio.image,
         }}
       />

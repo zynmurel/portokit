@@ -126,6 +126,19 @@ function StepOne() {
       />
       <FormField
         control={form.control}
+        name="details.phoneNumber"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Phone Number (Optional)</FormLabel>
+            <FormControl>
+              <Input placeholder="+1 234 567 8900" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
         name="details.description"
         render={({ field }) => (
           <FormItem className="md:col-span-2">

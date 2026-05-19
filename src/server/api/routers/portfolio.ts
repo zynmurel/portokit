@@ -39,6 +39,8 @@ export const portfolioRouter = createTRPCRouter({
           logo:
             typeof input.details.logo === "string" ? input.details.logo : "",
           location: input.details.location,
+          email: input.details.email,
+          phoneNumber: input.details.phoneNumber || null,
           github: input.details.github || null,
           gitlab: input.details.gitlab || null,
           linkedin: input.details.linkedin || null,

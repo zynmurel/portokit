@@ -38,6 +38,7 @@ const defaultValues: DetailsSchema = {
   location: "",
   image: null,
   email: "",
+  phoneNumber: "",
   logo: null,
 };
 
@@ -267,6 +268,19 @@ const DetailsFormDialog = ({
                     <FormControl>
                       <Input placeholder="john.doe@example.com" {...field} />
                     </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={detailsForm.control}
+                name="phoneNumber"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number (Optional)</FormLabel>
+                    <FormControl>
+                      <Input placeholder="+1 234 567 8900" {...field} />
+                    </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />

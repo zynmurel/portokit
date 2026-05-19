@@ -53,6 +53,8 @@ const stepFieldMap: FieldPath<PortfolioFormValues>[][] = [
     "details.description",
     "details.role",
     "details.location",
+    "details.email",
+    "details.phoneNumber",
     "details.github",
     "details.gitlab",
     "details.linkedin",

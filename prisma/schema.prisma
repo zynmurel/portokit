@@ -69,6 +69,7 @@ model Portfolio {
     name          String
     email         String @default("")
     slug          String   @unique
+    phoneNumber   String?
     description   String?
     location      String?
     github        String?

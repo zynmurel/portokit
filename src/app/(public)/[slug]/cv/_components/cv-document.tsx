@@ -70,35 +70,15 @@ function CvDocument({
   const orderedProjects = projects.slice().sort((a, b) => a.order - b.order);
 
   const contacts: { label: string; href: string }[] = [];
-  if (profile.linkedin)
+  if (profile.phoneNumber)
     contacts.push({
-      label: profile.linkedin.replace(/^https?:\/\//, ""),
-      href: profile.linkedin,
+      label: profile.phoneNumber,
+      href: `tel:${profile.phoneNumber.replace(/\s/g, "")}`,
     });
-  if (profile.github)
+  if (profile.email)
     contacts.push({
-      label: profile.github.replace(/^https?:\/\//, ""),
-      href: profile.github,
-    });
-  if (profile.gitlab)
-    contacts.push({
-      label: profile.gitlab.replace(/^https?:\/\//, ""),
-      href: profile.gitlab,
-    });
-  if (profile.twitter)
-    contacts.push({
-      label: profile.twitter.replace(/^https?:\/\//, ""),
-      href: profile.twitter,
-    });
-  if (profile.facebook)
-    contacts.push({
-      label: profile.facebook.replace(/^https?:\/\//, ""),
-      href: profile.facebook,
-    });
-  if (profile.instagram)
-    contacts.push({
-      label: profile.instagram.replace(/^https?:\/\//, ""),
-      href: profile.instagram,
+      label: profile.email,
+      href: `mailto:${profile.email}`,
     });
 
   return (
@@ -155,7 +135,7 @@ function CvDocument({
                       </div>
                     ) : null}
                     {exp.description.length > 0 ? (
-                      <ul className="mt-1 flex flex-col gap-0 pl-3.5 list-disc">
+                      <ul className="mt-1 flex list-disc flex-col gap-0 pl-3.5">
                         {exp.description.map((line, i) => (
                           <li
                             key={i}
@@ -195,25 +175,6 @@ function CvDocument({
                   </div>
                 ))}
               </div>
-            </Section>
-          ) : null}
-
-          {contacts.length > 0 ? (
-            <Section title="Contacts">
-              <ul className="flex flex-col gap-1">
-                {contacts.map((c) => (
-                  <li key={c.href}>
-                    <a
-                      href={c.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[11px] font-medium text-zinc-900 underline-offset-2 hover:underline"
-                    >
-                      {c.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </Section>
           ) : null}
         </div>
@@ -281,6 +242,38 @@ function CvDocument({
               </p>
             </Section>
           ) : null}
+
+          {contacts.length > 0 ? (
+            <Section title="Contacts">
+              <ul className="flex flex-col gap-1">
+                {contacts.map((c) => (
+                  <li key={c.href}>
+                    <a
+                      href={c.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[11px] font-medium text-zinc-900 underline-offset-2 hover:underline"
+                    >
+                      {c.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          ) : null}
+
+          <Section title="Portfolio">
+            <ul className="flex flex-col gap-1">
+              <a
+                href={`/portfolio/${profile.slug}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] font-medium text-zinc-900 underline-offset-2 hover:underline"
+              >
+                {`https://portokit.vercel.app/${profile.slug}`}
+              </a>
+            </ul>
+          </Section>
         </aside>
       </div>
 

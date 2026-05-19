@@ -163,6 +163,7 @@ exports.Prisma.PortfolioScalarFieldEnum = {
   name: 'name',
   email: 'email',
   slug: 'slug',
+  phoneNumber: 'phoneNumber',
   description: 'description',
   location: 'location',
   github: 'github',

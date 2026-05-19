@@ -9,6 +9,7 @@ export const detailsSchema = z.object({
   role: z.string().min(2, "Primary role is required"),
   location: z.string().min(2, "Location is required"),
   email: z.string().email("Please enter a valid email"),
+  phoneNumber: z.string().optional().or(z.literal("")),
   github: z.string().url("Use a valid URL").optional().or(z.literal("")),
   gitlab: z.string().url("Use a valid URL").optional().or(z.literal("")),
   linkedin: z.string().url("Use a valid URL").optional().or(z.literal("")),

@@ -26,6 +26,11 @@ function StepSix({ reviewValues }: { reviewValues: PortfolioFormValues }) {
           <ReviewField label="Slug" value={reviewValues.details.slug} />
           <ReviewField label="Role" value={reviewValues.details.role} />
           <ReviewField label="Location" value={reviewValues.details.location} />
+          <ReviewField label="Email" value={reviewValues.details.email} />
+          <ReviewField
+            label="Phone"
+            value={reviewValues.details.phoneNumber}
+          />
           <ReviewField
             label="Profile image"
             value={reviewValues.details.image ? "Selected" : undefined}

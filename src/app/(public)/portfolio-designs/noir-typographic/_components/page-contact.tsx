@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Portfolio } from "generated/prisma";
-import { ArrowUpRight, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -66,7 +66,11 @@ function PageContact({ profile }: { profile: Portfolio }) {
         {/* <SectionLabel index="05" label="Contact" /> */}
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
-          <FadeIn direction="up" className="col-span-1 md:col-span-8" amount={0.4}>
+          <FadeIn
+            direction="up"
+            className="col-span-1 md:col-span-8"
+            amount={0.4}
+          >
             <h2 className="text-4xl leading-[1.1] font-black tracking-tight uppercase sm:text-5xl md:text-6xl lg:text-7xl">
               Let&rsquo;s
               <span className={outlineText}> Talk</span>
@@ -115,6 +119,12 @@ function PageContact({ profile }: { profile: Portfolio }) {
                 <Mail className="size-4" />
                 {profile.email}
               </div>
+              {profile.phoneNumber ? (
+                <div className="text-foreground/70 flex flex-row items-center gap-3 font-mono text-xs tracking-[0.2em]">
+                  <Phone className="size-4" />
+                  {profile.phoneNumber}
+                </div>
+              ) : null}
             </StaggerItem>
 
             <StaggerItem direction="right" className="flex flex-col gap-3">
