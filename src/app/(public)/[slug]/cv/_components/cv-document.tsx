@@ -235,14 +235,6 @@ function CvDocument({
             </Section>
           ) : null}
 
-          {profile.location ? (
-            <Section title="Based in">
-              <p className="text-[10.5px] leading-[1.55] text-zinc-700">
-                {profile.location}
-              </p>
-            </Section>
-          ) : null}
-
           {contacts.length > 0 ? (
             <Section title="Contacts">
               <ul className="flex flex-col gap-1">
