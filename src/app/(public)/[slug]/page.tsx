@@ -20,11 +20,14 @@ export async function generateMetadata({
 
   return {
     title: profile.name,
-    description : description ?? "Portfolio",
+    description: description ?? "Portfolio",
     openGraph: {
       title: profile.name,
-      description : description ?? "Portfolio",
+      description: description ?? "Portfolio",
       images: profile.image ? [{ url: profile.image }] : undefined,
+    },
+    icons: {
+      icon: profile.logo ? [{ url: profile.logo }] : undefined,
     },
   };
 }
