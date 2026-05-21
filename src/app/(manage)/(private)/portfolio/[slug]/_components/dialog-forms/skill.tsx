@@ -3,9 +3,11 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
+  skillCategoryOptions,
   type SkillSchema,
   skillSchema,
 } from "@/app/(manage)/(private)/_components/form-components/schema";
+import { SkillCategory } from "generated/prisma";
 import {
   Form,
   FormField,
@@ -24,6 +26,13 @@ import {  Pickaxe, UserPen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { api } from "@/trpc/react";
 import { uploadImage } from "@/lib/api/upload-image";
 import { useParams } from "next/navigation";
@@ -32,6 +41,7 @@ import toast from "react-hot-toast";
 const defaultValues: SkillSchema = {
   name: "",
   icon: "",
+  category: SkillCategory.FRONTEND,
 };
 
 const SkillFormDialog = ({
@@ -104,6 +114,7 @@ const SkillFormDialog = ({
       skillForm.reset({
         name: data.name,
         icon: data.icon ?? "",
+        category: data.category ?? SkillCategory.FRONTEND,
       });
     }
   }, [data, open, skillForm]);
@@ -154,6 +165,29 @@ const SkillFormDialog = ({
                     <FormControl>
                       <Input placeholder="e.g. React" {...field} />
                     </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={skillForm.control}
+                name="category"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>Category</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select a category" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {skillCategoryOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </FormItem>
                 )}
               />

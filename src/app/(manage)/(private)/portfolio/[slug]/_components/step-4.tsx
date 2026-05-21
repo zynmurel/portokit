@@ -17,7 +17,11 @@ import {
   TrendingUpDown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { StepFourProfessionalTraitsLoader, StepFourSkillsLoader } from "./loaders";
+import {
+  StepFourProfessionalTraitsLoader,
+  StepFourSkillsLoader,
+} from "./loaders";
+import { SkillCategory } from "generated/prisma";
 import type {
   PortfolioFormValues,
   ProfessionalTraitSchema,
@@ -50,6 +54,7 @@ import type { FieldArrayWithId } from "react-hook-form";
 import { CSS } from "@dnd-kit/utilities";
 import TraitDeleteDialog from "./dialog-forms/trait-delete";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 function StepFour({ portfolioId }: { portfolioId: string }) {
   return (
@@ -74,6 +79,7 @@ const SkillHeaderAndContent = ({ portfolioId }: { portfolioId: string }) => {
     return {
       name: active?.name ?? "",
       icon: active?.icon ?? "",
+      category: active?.category ?? SkillCategory.FRONTEND,
     } as SkillSchema;
   };
   return (
@@ -234,7 +240,7 @@ const SkillsDetailsContent = ({
                 items={skillLists.map((field) => field.id)}
                 strategy={rectSortingStrategy}
               >
-                <div className="grid sm:grid-cols-2 gap-2 lg:grid-cols-3 2xl:grid-cols-4">
+                <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
                   {skillLists.map((field) => (
                     <SortableSkillRow
                       key={field.id}
@@ -473,14 +479,14 @@ export function SortableSkillRow({
         transition,
       }}
       className={cn(
-        "flex flex-row items-center gap-1 rounded-md border p-0 py-2 pl-1 bg-background",
+        "bg-background flex flex-row items-center gap-1 rounded-md border p-0 py-2 pl-1",
       )}
     >
       <Button
         type="button"
         variant="ghost"
         size="icon-sm"
-        className="size-7 flex-none w-6 pl-2 pr-2"
+        className="size-7 w-6 flex-none pr-2 pl-2"
         {...attributes}
         {...listeners}
         disabled={disabled}
@@ -488,7 +494,7 @@ export function SortableSkillRow({
         <GripVertical className="size-4" />
       </Button>
 
-      <div className="flex flex-row items-center gap-2 bg-white rounded overflow-hidden">
+      <div className="flex flex-row items-center gap-2 overflow-hidden rounded bg-white">
         <Image
           src={iconPreview ?? ""}
           alt={value.name}
@@ -500,11 +506,19 @@ export function SortableSkillRow({
           }}
         />
       </div>
-      <div className="w-full truncate text-xs font-medium md:text-sm flex-1 pl-1">
-        {value.name}
+      <div className="flex flex-col gap-1 flex-1">
+        <div className="w-full flex-1 truncate pl-1 text-xs font-medium md:text-sm">
+          {value.name}
+        </div>
+        <Badge variant="outline">{value.category}</Badge>
       </div>
 
-      <Button type="button" variant="ghost" onClick={onRemove} className=" pl-3 pr-3">
+      <Button
+        type="button"
+        variant="ghost"
+        onClick={onRemove}
+        className="pr-3 pl-3"
+      >
         <Trash2 className="text-destructive size-4" />
       </Button>
     </div>

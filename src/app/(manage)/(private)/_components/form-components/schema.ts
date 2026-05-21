@@ -1,5 +1,15 @@
-import { ProjectType } from "generated/prisma";
+import { ProjectType, SkillCategory } from "generated/prisma";
 import z from "zod";
+
+export const skillCategoryOptions = [
+  { value: SkillCategory.FRONTEND, label: "Frontend" },
+  { value: SkillCategory.BACKEND, label: "Backend" },
+  { value: SkillCategory.DATABASE, label: "Database" },
+  { value: SkillCategory.FULLSTACK, label: "Fullstack" },
+  { value: SkillCategory.DEVOPS, label: "DevOps/Tools" },
+  { value: SkillCategory.DESIGN, label: "Design" },
+  { value: SkillCategory.OTHER, label: "Other" },
+] as const;
 
 export const detailsSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -40,6 +50,7 @@ export const experienceSchema = z.object({
 export const skillSchema = z.object({
   icon: z.any().optional(),
   name: z.string().min(1, "Skill name is required"),
+  category: z.nativeEnum(SkillCategory),
 });
 
 export const professionalTraitSchema = z.object({

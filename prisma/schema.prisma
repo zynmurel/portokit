@@ -60,28 +60,28 @@ model Session {
 }
 
 model Portfolio {
-    id            String   @id @default(cuid())
-    image         String
-    userId        String
-    title         String
-    role          String
-    logo          String
-    name          String
-    email         String @default("")
-    slug          String   @unique
-    phoneNumber   String?
-    description   String?
-    location      String?
-    github        String?
-    gitlab        String?
-    linkedin      String?
-    facebook      String?
-    twitter       String?
-    instagram     String?
-    tiktok        String?
-    isPublished   Boolean  @default(false)
-    theme         String   @default("default")
-    design        String   @default("noir-typographic")
+    id          String  @id @default(cuid())
+    image       String
+    userId      String
+    title       String
+    role        String
+    logo        String
+    name        String
+    email       String  @default("")
+    slug        String  @unique
+    phoneNumber String?
+    description String?
+    location    String?
+    github      String?
+    gitlab      String?
+    linkedin    String?
+    facebook    String?
+    twitter     String?
+    instagram   String?
+    tiktok      String?
+    isPublished Boolean @default(false)
+    theme       String  @default("default")
+    design      String  @default("noir-typographic")
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -207,6 +207,8 @@ model Skill {
 
     name String
 
+    category SkillCategory @default(FRONTEND)
+
     icon String? // e.g. "react", "nextjs", "nodejs"
 
     createdAt DateTime @default(now())
@@ -220,6 +222,7 @@ model Skill {
 enum SkillCategory {
     FRONTEND
     BACKEND
+    DATABASE
     FULLSTACK
     DEVOPS
     DESIGN

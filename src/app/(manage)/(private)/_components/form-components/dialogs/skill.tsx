@@ -4,8 +4,9 @@ import { useQueryState } from "nuqs";
 import { parseAsInteger } from "nuqs";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { skillSchema } from "../schema";
+import { skillCategoryOptions, skillSchema } from "../schema";
 import type { SkillSchema } from "../schema";
+import { SkillCategory } from "generated/prisma";
 import {
   Form,
   FormField,
@@ -24,10 +25,18 @@ import { Pickaxe } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const defaultValues: SkillSchema = {
   name: "",
   icon: undefined,
+  category: SkillCategory.FRONTEND,
 };
 
 const SkillDialog = ({
@@ -132,6 +141,29 @@ const SkillDialog = ({
                     <FormControl>
                       <Input placeholder="e.g. React" {...field} />
                     </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={skillForm.control}
+                name="category"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>Category</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select a category" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {skillCategoryOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </FormItem>
                 )}
               />

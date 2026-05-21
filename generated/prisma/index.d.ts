@@ -86,6 +86,7 @@ export type ProjectType = (typeof ProjectType)[keyof typeof ProjectType]
 export const SkillCategory: {
   FRONTEND: 'FRONTEND',
   BACKEND: 'BACKEND',
+  DATABASE: 'DATABASE',
   FULLSTACK: 'FULLSTACK',
   DEVOPS: 'DEVOPS',
   DESIGN: 'DESIGN',
@@ -12567,6 +12568,7 @@ export namespace Prisma {
     order: number | null
     portfolioId: string | null
     name: string | null
+    category: $Enums.SkillCategory | null
     icon: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -12577,6 +12579,7 @@ export namespace Prisma {
     order: number | null
     portfolioId: string | null
     name: string | null
+    category: $Enums.SkillCategory | null
     icon: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -12587,6 +12590,7 @@ export namespace Prisma {
     order: number
     portfolioId: number
     name: number
+    category: number
     icon: number
     createdAt: number
     updatedAt: number
@@ -12607,6 +12611,7 @@ export namespace Prisma {
     order?: true
     portfolioId?: true
     name?: true
+    category?: true
     icon?: true
     createdAt?: true
     updatedAt?: true
@@ -12617,6 +12622,7 @@ export namespace Prisma {
     order?: true
     portfolioId?: true
     name?: true
+    category?: true
     icon?: true
     createdAt?: true
     updatedAt?: true
@@ -12627,6 +12633,7 @@ export namespace Prisma {
     order?: true
     portfolioId?: true
     name?: true
+    category?: true
     icon?: true
     createdAt?: true
     updatedAt?: true
@@ -12724,6 +12731,7 @@ export namespace Prisma {
     order: number
     portfolioId: string
     name: string
+    category: $Enums.SkillCategory
     icon: string | null
     createdAt: Date
     updatedAt: Date
@@ -12753,6 +12761,7 @@ export namespace Prisma {
     order?: boolean
     portfolioId?: boolean
     name?: boolean
+    category?: boolean
     icon?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -12764,6 +12773,7 @@ export namespace Prisma {
     order?: boolean
     portfolioId?: boolean
     name?: boolean
+    category?: boolean
     icon?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -12775,6 +12785,7 @@ export namespace Prisma {
     order?: boolean
     portfolioId?: boolean
     name?: boolean
+    category?: boolean
     icon?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -12786,12 +12797,13 @@ export namespace Prisma {
     order?: boolean
     portfolioId?: boolean
     name?: boolean
+    category?: boolean
     icon?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type SkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "order" | "portfolioId" | "name" | "icon" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
+  export type SkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "order" | "portfolioId" | "name" | "category" | "icon" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
   export type SkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
   }
@@ -12812,6 +12824,7 @@ export namespace Prisma {
       order: number
       portfolioId: string
       name: string
+      category: $Enums.SkillCategory
       icon: string | null
       createdAt: Date
       updatedAt: Date
@@ -13243,6 +13256,7 @@ export namespace Prisma {
     readonly order: FieldRef<"Skill", 'Int'>
     readonly portfolioId: FieldRef<"Skill", 'String'>
     readonly name: FieldRef<"Skill", 'String'>
+    readonly category: FieldRef<"Skill", 'SkillCategory'>
     readonly icon: FieldRef<"Skill", 'String'>
     readonly createdAt: FieldRef<"Skill", 'DateTime'>
     readonly updatedAt: FieldRef<"Skill", 'DateTime'>
@@ -14923,6 +14937,7 @@ export namespace Prisma {
     order: 'order',
     portfolioId: 'portfolioId',
     name: 'name',
+    category: 'category',
     icon: 'icon',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -15045,6 +15060,20 @@ export namespace Prisma {
    * Reference to a field of type 'ProjectType[]'
    */
   export type ListEnumProjectTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'SkillCategory'
+   */
+  export type EnumSkillCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SkillCategory'>
+    
+
+
+  /**
+   * Reference to a field of type 'SkillCategory[]'
+   */
+  export type ListEnumSkillCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SkillCategory[]'>
     
 
 
@@ -15867,6 +15896,7 @@ export namespace Prisma {
     order?: IntFilter<"Skill"> | number
     portfolioId?: StringFilter<"Skill"> | string
     name?: StringFilter<"Skill"> | string
+    category?: EnumSkillCategoryFilter<"Skill"> | $Enums.SkillCategory
     icon?: StringNullableFilter<"Skill"> | string | null
     createdAt?: DateTimeFilter<"Skill"> | Date | string
     updatedAt?: DateTimeFilter<"Skill"> | Date | string
@@ -15878,6 +15908,7 @@ export namespace Prisma {
     order?: SortOrder
     portfolioId?: SortOrder
     name?: SortOrder
+    category?: SortOrder
     icon?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -15892,6 +15923,7 @@ export namespace Prisma {
     order?: IntFilter<"Skill"> | number
     portfolioId?: StringFilter<"Skill"> | string
     name?: StringFilter<"Skill"> | string
+    category?: EnumSkillCategoryFilter<"Skill"> | $Enums.SkillCategory
     icon?: StringNullableFilter<"Skill"> | string | null
     createdAt?: DateTimeFilter<"Skill"> | Date | string
     updatedAt?: DateTimeFilter<"Skill"> | Date | string
@@ -15903,6 +15935,7 @@ export namespace Prisma {
     order?: SortOrder
     portfolioId?: SortOrder
     name?: SortOrder
+    category?: SortOrder
     icon?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -15921,6 +15954,7 @@ export namespace Prisma {
     order?: IntWithAggregatesFilter<"Skill"> | number
     portfolioId?: StringWithAggregatesFilter<"Skill"> | string
     name?: StringWithAggregatesFilter<"Skill"> | string
+    category?: EnumSkillCategoryWithAggregatesFilter<"Skill"> | $Enums.SkillCategory
     icon?: StringNullableWithAggregatesFilter<"Skill"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Skill"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Skill"> | Date | string
@@ -16894,6 +16928,7 @@ export namespace Prisma {
     id?: string
     order?: number
     name: string
+    category?: $Enums.SkillCategory
     icon?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -16905,6 +16940,7 @@ export namespace Prisma {
     order?: number
     portfolioId: string
     name: string
+    category?: $Enums.SkillCategory
     icon?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -16914,6 +16950,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16925,6 +16962,7 @@ export namespace Prisma {
     order?: IntFieldUpdateOperationsInput | number
     portfolioId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16935,6 +16973,7 @@ export namespace Prisma {
     order?: number
     portfolioId: string
     name: string
+    category?: $Enums.SkillCategory
     icon?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -16944,6 +16983,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16954,6 +16994,7 @@ export namespace Prisma {
     order?: IntFieldUpdateOperationsInput | number
     portfolioId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17752,11 +17793,19 @@ export namespace Prisma {
     order?: SortOrder
   }
 
+  export type EnumSkillCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.SkillCategory | EnumSkillCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumSkillCategoryFilter<$PrismaModel> | $Enums.SkillCategory
+  }
+
   export type SkillCountOrderByAggregateInput = {
     id?: SortOrder
     order?: SortOrder
     portfolioId?: SortOrder
     name?: SortOrder
+    category?: SortOrder
     icon?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -17771,6 +17820,7 @@ export namespace Prisma {
     order?: SortOrder
     portfolioId?: SortOrder
     name?: SortOrder
+    category?: SortOrder
     icon?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -17781,6 +17831,7 @@ export namespace Prisma {
     order?: SortOrder
     portfolioId?: SortOrder
     name?: SortOrder
+    category?: SortOrder
     icon?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -17788,6 +17839,16 @@ export namespace Prisma {
 
   export type SkillSumOrderByAggregateInput = {
     order?: SortOrder
+  }
+
+  export type EnumSkillCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SkillCategory | EnumSkillCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumSkillCategoryWithAggregatesFilter<$PrismaModel> | $Enums.SkillCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSkillCategoryFilter<$PrismaModel>
+    _max?: NestedEnumSkillCategoryFilter<$PrismaModel>
   }
 
   export type ProjectScalarRelationFilter = {
@@ -18436,6 +18497,10 @@ export namespace Prisma {
     connect?: PortfolioWhereUniqueInput
   }
 
+  export type EnumSkillCategoryFieldUpdateOperationsInput = {
+    set?: $Enums.SkillCategory
+  }
+
   export type PortfolioUpdateOneRequiredWithoutSkillsNestedInput = {
     create?: XOR<PortfolioCreateWithoutSkillsInput, PortfolioUncheckedCreateWithoutSkillsInput>
     connectOrCreate?: PortfolioCreateOrConnectWithoutSkillsInput
@@ -18691,6 +18756,23 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumProjectTypeFilter<$PrismaModel>
     _max?: NestedEnumProjectTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSkillCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.SkillCategory | EnumSkillCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumSkillCategoryFilter<$PrismaModel> | $Enums.SkillCategory
+  }
+
+  export type NestedEnumSkillCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SkillCategory | EnumSkillCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SkillCategory[] | ListEnumSkillCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumSkillCategoryWithAggregatesFilter<$PrismaModel> | $Enums.SkillCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSkillCategoryFilter<$PrismaModel>
+    _max?: NestedEnumSkillCategoryFilter<$PrismaModel>
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -19212,6 +19294,7 @@ export namespace Prisma {
     id?: string
     order?: number
     name: string
+    category?: $Enums.SkillCategory
     icon?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -19221,6 +19304,7 @@ export namespace Prisma {
     id?: string
     order?: number
     name: string
+    category?: $Enums.SkillCategory
     icon?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -19454,6 +19538,7 @@ export namespace Prisma {
     order?: IntFilter<"Skill"> | number
     portfolioId?: StringFilter<"Skill"> | string
     name?: StringFilter<"Skill"> | string
+    category?: EnumSkillCategoryFilter<"Skill"> | $Enums.SkillCategory
     icon?: StringNullableFilter<"Skill"> | string | null
     createdAt?: DateTimeFilter<"Skill"> | Date | string
     updatedAt?: DateTimeFilter<"Skill"> | Date | string
@@ -20767,6 +20852,7 @@ export namespace Prisma {
     id?: string
     order?: number
     name: string
+    category?: $Enums.SkillCategory
     icon?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -20925,6 +21011,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20934,6 +21021,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20943,6 +21031,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    category?: EnumSkillCategoryFieldUpdateOperationsInput | $Enums.SkillCategory
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

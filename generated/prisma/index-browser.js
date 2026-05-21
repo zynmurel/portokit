@@ -251,6 +251,7 @@ exports.Prisma.SkillScalarFieldEnum = {
   order: 'order',
   portfolioId: 'portfolioId',
   name: 'name',
+  category: 'category',
   icon: 'icon',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -287,6 +288,16 @@ exports.ProjectType = exports.$Enums.ProjectType = {
   PERSONAL: 'PERSONAL',
   PROFESSIONAL: 'PROFESSIONAL',
   FREELANCE: 'FREELANCE',
+  OTHER: 'OTHER'
+};
+
+exports.SkillCategory = exports.$Enums.SkillCategory = {
+  FRONTEND: 'FRONTEND',
+  BACKEND: 'BACKEND',
+  DATABASE: 'DATABASE',
+  FULLSTACK: 'FULLSTACK',
+  DEVOPS: 'DEVOPS',
+  DESIGN: 'DESIGN',
   OTHER: 'OTHER'
 };
 

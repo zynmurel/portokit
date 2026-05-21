@@ -71,6 +71,7 @@ export const portfolioRouter = createTRPCRouter({
           skills: {
             create: input.skills.map((item, index) => ({
               name: item.name,
+              category: item.category,
               icon: typeof item.icon === "string" ? item.icon : null,
               order: index,
             })),

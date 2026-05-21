@@ -1,6 +1,27 @@
 import { format } from "date-fns";
 import React from "react";
+import { SkillCategory } from "generated/prisma";
 import type { PortfolioWithRelations } from "../../../portfolio-designs/const";
+
+const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
+  [SkillCategory.FRONTEND]: "Frontend",
+  [SkillCategory.BACKEND]: "Backend",
+  [SkillCategory.DATABASE]: "Database",
+  [SkillCategory.FULLSTACK]: "Fullstack",
+  [SkillCategory.DEVOPS]: "DevOps & Tools",
+  [SkillCategory.DESIGN]: "Design",
+  [SkillCategory.OTHER]: "Other",
+};
+
+const SKILL_CATEGORY_ORDER: SkillCategory[] = [
+  SkillCategory.FRONTEND,
+  SkillCategory.BACKEND,
+  SkillCategory.FULLSTACK,
+  SkillCategory.DATABASE,
+  SkillCategory.DEVOPS,
+  SkillCategory.DESIGN,
+  SkillCategory.OTHER,
+];
 
 type CvProject = PortfolioWithRelations["projects"][number];
 
@@ -177,9 +198,6 @@ function CvDocument({
               </div>
             </Section>
           ) : null}
-        </div>
-
-        <aside className="col-span-4 flex flex-col gap-5">
           {education.length > 0 ? (
             <Section title="Education">
               <div className="flex flex-col gap-3">
@@ -188,16 +206,20 @@ function CvDocument({
                   return (
                     <div key={edu.id} className="flex flex-col">
                       <div className="text-[11px] font-bold text-zinc-900">
-                        {edu.school}
+                        <p className="flex flex-wrap items-baseline gap-x-2">
+                          {edu.school}{" "}
+                          <span className="font-normal">
+                            {range ? (
+                              <div className="mt-0.5 text-[10px] text-zinc-500">
+                                {range}
+                              </div>
+                            ) : null}
+                          </span>
+                        </p>
                       </div>
                       {edu.degree || edu.field ? (
                         <div className="mt-0.5 text-[10.5px] leading-[1.55] text-zinc-700">
-                          {[edu.degree, edu.field].filter(Boolean).join(" in ")}
-                        </div>
-                      ) : null}
-                      {range ? (
-                        <div className="mt-0.5 text-[10px] text-zinc-500">
-                          {range}
+                          {[edu.degree, edu.field].filter(Boolean).join(" - ")}
                         </div>
                       ) : null}
                     </div>
@@ -206,14 +228,26 @@ function CvDocument({
               </div>
             </Section>
           ) : null}
+        </div>
+
+        <aside className="col-span-4 flex flex-col gap-5">
           {skills.length > 0 ? (
             <Section title="Expertise">
-              <div className="flex flex-col gap-3">
-                <SidebarBlock label="Frameworks & Tools">
-                  <p className="text-[10.5px] leading-[1.55] text-zinc-700">
-                    {joinList(skills.map((s) => s.name))}
-                  </p>
-                </SidebarBlock>
+              <div className="flex flex-col gap-2">
+                {SKILL_CATEGORY_ORDER.map((category) => {
+                  const items = skills.filter((s) => s.category === category);
+                  if (items.length === 0) return null;
+                  return (
+                    <SidebarBlock
+                      key={category}
+                      label={SKILL_CATEGORY_LABELS[category]}
+                    >
+                      <p className="text-[10.5px] leading-[1.55] text-zinc-700">
+                        {joinList(items.map((s) => s.name))}
+                      </p>
+                    </SidebarBlock>
+                  );
+                })}
               </div>
             </Section>
           ) : null}
@@ -307,7 +341,7 @@ function SidebarBlock({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-0">
       {label ? (
         <div className="text-[10.5px] font-bold text-zinc-900">{label}</div>
       ) : null}

@@ -207,6 +207,8 @@ model Skill {
 
   name String
 
+  category SkillCategory @default(FRONTEND)
+
   icon String? // e.g. "react", "nextjs", "nodejs"
 
   createdAt DateTime @default(now())
@@ -220,6 +222,7 @@ model Skill {
 enum SkillCategory {
   FRONTEND
   BACKEND
+  DATABASE
   FULLSTACK
   DEVOPS
   DESIGN

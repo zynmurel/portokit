@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  useFormContext,
-  type FieldArrayWithId,
-} from "react-hook-form";
+import { useFormContext, type FieldArrayWithId } from "react-hook-form";
 import { type PortfolioFormValues } from "./schema";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,6 +31,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 function StepFour({
   skills,
@@ -292,7 +290,11 @@ function SortableSkillRow({
             e.currentTarget.src = "/fallback.png";
           }}
         />
-        <div className="text-xs font-medium">{value.name}</div>
+
+        <div className="flex flex-col gap-1">
+          <div className="text-xs font-medium">{value.name}</div>
+          <Badge variant="outline">{value.category}</Badge>
+        </div>
       </div>
 
       <Button type="button" variant="ghost" onClick={onRemove}>
