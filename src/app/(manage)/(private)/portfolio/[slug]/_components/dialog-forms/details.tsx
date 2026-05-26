@@ -34,6 +34,7 @@ const defaultValues: DetailsSchema = {
   title: "",
   slug: "",
   description: "",
+  aboutme: "",
   role: "",
   location: "",
   image: null,
@@ -294,6 +295,23 @@ const DetailsFormDialog = ({
                       <Textarea
                         placeholder="Tell us about your profile and what you do."
                         className="min-h-28"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={detailsForm.control}
+                name="aboutme"
+                render={({ field }) => (
+                  <FormItem className="md:col-span-2">
+                    <FormLabel>About Me (Optional)</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="A longer story about who you are, your background, and what drives you."
+                        className="min-h-32"
                         {...field}
                       />
                     </FormControl>

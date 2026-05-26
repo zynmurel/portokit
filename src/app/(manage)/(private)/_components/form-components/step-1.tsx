@@ -154,6 +154,23 @@ function StepOne() {
           </FormItem>
         )}
       />
+      <FormField
+        control={form.control}
+        name="details.aboutme"
+        render={({ field }) => (
+          <FormItem className="md:col-span-2">
+            <FormLabel>About Me (Optional)</FormLabel>
+            <FormControl>
+              <Textarea
+                placeholder="A longer story about who you are, your background, and what drives you."
+                className="min-h-32"
+                {...field}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
       <div className="flex flex-row gap-2 md:col-span-2">
         <p className="text-sm font-semibold">Social Links</p>
       </div>

@@ -71,6 +71,7 @@ model Portfolio {
     slug        String  @unique
     phoneNumber String?
     description String?
+    aboutme     String?
     location    String?
     github      String?
     gitlab      String?

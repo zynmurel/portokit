@@ -184,6 +184,16 @@ const DetailsContent = ({
         </p>
       </div>
 
+      {/* About Me */}
+      <div className="border-b p-5">
+        <p className="text-muted-foreground mb-2 text-[11px] font-medium tracking-wider uppercase">
+          About Me
+        </p>
+        <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">
+          {portfolio.aboutme || "—"}
+        </p>
+      </div>
+
       {/* Social links */}
       <div className="p-5">
         <p className="text-muted-foreground mb-3 text-[11px] font-medium tracking-wider uppercase">
@@ -222,6 +232,7 @@ const DetailsContent = ({
           slug: portfolio.slug,
           location: portfolio.location ?? "",
           description: portfolio.description ?? "",
+          aboutme: portfolio.aboutme ?? "",
           role: portfolio.role,
           logo: portfolio.logo,
           github: portfolio.github ?? undefined,

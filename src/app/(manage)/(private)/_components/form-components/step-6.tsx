@@ -45,6 +45,12 @@ function StepSix({ reviewValues }: { reviewValues: PortfolioFormValues }) {
           </p>
         </ReviewField>
 
+        <ReviewField label="About Me">
+          <p className="text-foreground text-sm leading-relaxed whitespace-pre-line">
+            {reviewValues.details.aboutme || <EmptyValue />}
+          </p>
+        </ReviewField>
+
         <Separator />
 
         <div>

@@ -33,6 +33,7 @@ export const portfolioRouter = createTRPCRouter({
           role: input.details.role,
           name: input.details.name,
           description: input.details.description,
+          aboutme: input.details.aboutme || null,
           slug: input.details.slug,
           image:
             typeof input.details.image === "string" ? input.details.image : "",

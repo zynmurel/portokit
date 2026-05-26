@@ -1,9 +1,11 @@
 export function SectionLabel({
   index,
   label,
+  shouldShowBorder = true,
 }: {
   index: string;
   label: string;
+  shouldShowBorder?: boolean;
 }) {
   return (
     <div className="text-foreground/70 flex flex-row items-center gap-5 font-mono text-xs tracking-[0.3em] uppercase">
@@ -11,7 +13,9 @@ export function SectionLabel({
         <span className="text-foreground/60">[{index}]</span>
         <span>{label}</span>
       </div>
-      <div className="border-foreground/70 flex-1 border-b-2" />
+      {shouldShowBorder && (
+        <div className="border-foreground/70 flex-1 border-b-2" />
+      )}
     </div>
   );
 }

@@ -36,7 +36,7 @@ function PageProjects({ profile }: { profile: ProfileWithRelations }) {
 
   return (
     <div id="projects">
-      <section className="mx-auto w-full max-w-7xl px-6 pb-0 sm:px-10 sm:pb-8">
+      <section className="mx-auto w-full max-w-6xl px-6 pb-0 sm:px-10 sm:pb-8">
         <FadeIn direction="right" amount={0.5}>
           <SectionLabel index="04" label="Projects" />
         </FadeIn>
@@ -47,26 +47,18 @@ function PageProjects({ profile }: { profile: ProfileWithRelations }) {
             className="col-span-1 md:col-span-8"
             amount={0.4}
           >
-            <h2 className="text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:text-6xl lg:text-7xl">
-              Selected
-              <br />
-              <span className={outlineText}>Work</span>
+            <h2 className="text-4xl leading-[1.1] font-black tracking-tight uppercase sm:text-4xl md:text-4xl lg:text-5xl">
+              Featured <span className={outlineText}>Projects</span>
             </h2>
-          </FadeIn>
-          <FadeIn
-            direction="left"
-            delay={0.15}
-            className="col-span-1 md:col-span-4 md:mb-2"
-            amount={0.4}
-          >
-            <code className="text-muted-foreground block max-w-md text-base">
-              A collection of products, prototypes, and experiments &mdash; the
-              things I&rsquo;ve shipped, designed, and tinkered on.
+
+            <code className="text-muted-foreground mt-2 max-w-md text-sm md:text-base">
+              A showcase of web applications, systems, and digital experiences
+              I’ve built using modern technologies.
             </code>
           </FadeIn>
         </div>
 
-        <div className="border-foreground/20 mt-16 flex flex-col border-t">
+        <div className="mt-10 flex flex-col border-t">
           {projects.map((project, idx) => (
             <ProjectRow
               key={project.id}
@@ -106,16 +98,13 @@ function ProjectRow({
   );
 
   return (
-    <article className="border-foreground/20 group hover:bg-foreground hover:text-background border-b transition-colors duration-300">
-      <div className="grid grid-cols-1 gap-8 p-6 px-0 lg:px-10 sm:py-10 lg:grid-cols-12 md:gap-12">
+    <article className="group hover:bg-foreground hover:text-background border-b transition-colors duration-300">
+      <div className="grid grid-cols-1 gap-8 p-6 px-0 sm:py-10 md:gap-12 lg:grid-cols-12 lg:px-10">
         <FadeIn
           direction={flip ? "left" : "right"}
           amount={0.2}
           duration={0.8}
-          className={cn(
-            "col-span-1 md:col-span-7",
-            flip && "md:order-2",
-          )}
+          className={cn("col-span-1 md:col-span-7", flip && "md:order-2")}
         >
           <ProjectGallery images={galleryImages} title={project.title} />
         </FadeIn>
@@ -143,7 +132,7 @@ function ProjectRow({
             </span>
           </div>
 
-          <h3 className="text-3xl leading-[1.05] font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
+          <h3 className="text-2xl leading-[1.05] font-black tracking-tight uppercase sm:text-2xl md:text-3xl">
             {project.title}
           </h3>
 

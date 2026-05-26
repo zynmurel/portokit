@@ -5376,6 +5376,7 @@ export namespace Prisma {
     slug: string | null
     phoneNumber: string | null
     description: string | null
+    aboutme: string | null
     location: string | null
     github: string | null
     gitlab: string | null
@@ -5403,6 +5404,7 @@ export namespace Prisma {
     slug: string | null
     phoneNumber: string | null
     description: string | null
+    aboutme: string | null
     location: string | null
     github: string | null
     gitlab: string | null
@@ -5430,6 +5432,7 @@ export namespace Prisma {
     slug: number
     phoneNumber: number
     description: number
+    aboutme: number
     location: number
     github: number
     gitlab: number
@@ -5459,6 +5462,7 @@ export namespace Prisma {
     slug?: true
     phoneNumber?: true
     description?: true
+    aboutme?: true
     location?: true
     github?: true
     gitlab?: true
@@ -5486,6 +5490,7 @@ export namespace Prisma {
     slug?: true
     phoneNumber?: true
     description?: true
+    aboutme?: true
     location?: true
     github?: true
     gitlab?: true
@@ -5513,6 +5518,7 @@ export namespace Prisma {
     slug?: true
     phoneNumber?: true
     description?: true
+    aboutme?: true
     location?: true
     github?: true
     gitlab?: true
@@ -5613,6 +5619,7 @@ export namespace Prisma {
     slug: string
     phoneNumber: string | null
     description: string | null
+    aboutme: string | null
     location: string | null
     github: string | null
     gitlab: string | null
@@ -5657,6 +5664,7 @@ export namespace Prisma {
     slug?: boolean
     phoneNumber?: boolean
     description?: boolean
+    aboutme?: boolean
     location?: boolean
     github?: boolean
     gitlab?: boolean
@@ -5692,6 +5700,7 @@ export namespace Prisma {
     slug?: boolean
     phoneNumber?: boolean
     description?: boolean
+    aboutme?: boolean
     location?: boolean
     github?: boolean
     gitlab?: boolean
@@ -5720,6 +5729,7 @@ export namespace Prisma {
     slug?: boolean
     phoneNumber?: boolean
     description?: boolean
+    aboutme?: boolean
     location?: boolean
     github?: boolean
     gitlab?: boolean
@@ -5748,6 +5758,7 @@ export namespace Prisma {
     slug?: boolean
     phoneNumber?: boolean
     description?: boolean
+    aboutme?: boolean
     location?: boolean
     github?: boolean
     gitlab?: boolean
@@ -5763,7 +5774,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "image" | "userId" | "title" | "role" | "logo" | "name" | "email" | "slug" | "phoneNumber" | "description" | "location" | "github" | "gitlab" | "linkedin" | "facebook" | "twitter" | "instagram" | "tiktok" | "isPublished" | "theme" | "design" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "image" | "userId" | "title" | "role" | "logo" | "name" | "email" | "slug" | "phoneNumber" | "description" | "aboutme" | "location" | "github" | "gitlab" | "linkedin" | "facebook" | "twitter" | "instagram" | "tiktok" | "isPublished" | "theme" | "design" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
   export type PortfolioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     experiences?: boolean | Portfolio$experiencesArgs<ExtArgs>
@@ -5804,6 +5815,7 @@ export namespace Prisma {
       slug: string
       phoneNumber: string | null
       description: string | null
+      aboutme: string | null
       location: string | null
       github: string | null
       gitlab: string | null
@@ -6258,6 +6270,7 @@ export namespace Prisma {
     readonly slug: FieldRef<"Portfolio", 'String'>
     readonly phoneNumber: FieldRef<"Portfolio", 'String'>
     readonly description: FieldRef<"Portfolio", 'String'>
+    readonly aboutme: FieldRef<"Portfolio", 'String'>
     readonly location: FieldRef<"Portfolio", 'String'>
     readonly github: FieldRef<"Portfolio", 'String'>
     readonly gitlab: FieldRef<"Portfolio", 'String'>
@@ -14833,6 +14846,7 @@ export namespace Prisma {
     slug: 'slug',
     phoneNumber: 'phoneNumber',
     description: 'description',
+    aboutme: 'aboutme',
     location: 'location',
     github: 'github',
     gitlab: 'gitlab',
@@ -15323,6 +15337,7 @@ export namespace Prisma {
     slug?: StringFilter<"Portfolio"> | string
     phoneNumber?: StringNullableFilter<"Portfolio"> | string | null
     description?: StringNullableFilter<"Portfolio"> | string | null
+    aboutme?: StringNullableFilter<"Portfolio"> | string | null
     location?: StringNullableFilter<"Portfolio"> | string | null
     github?: StringNullableFilter<"Portfolio"> | string | null
     gitlab?: StringNullableFilter<"Portfolio"> | string | null
@@ -15357,6 +15372,7 @@ export namespace Prisma {
     slug?: SortOrder
     phoneNumber?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
+    aboutme?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     github?: SortOrderInput | SortOrder
     gitlab?: SortOrderInput | SortOrder
@@ -15394,6 +15410,7 @@ export namespace Prisma {
     email?: StringFilter<"Portfolio"> | string
     phoneNumber?: StringNullableFilter<"Portfolio"> | string | null
     description?: StringNullableFilter<"Portfolio"> | string | null
+    aboutme?: StringNullableFilter<"Portfolio"> | string | null
     location?: StringNullableFilter<"Portfolio"> | string | null
     github?: StringNullableFilter<"Portfolio"> | string | null
     gitlab?: StringNullableFilter<"Portfolio"> | string | null
@@ -15428,6 +15445,7 @@ export namespace Prisma {
     slug?: SortOrder
     phoneNumber?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
+    aboutme?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     github?: SortOrderInput | SortOrder
     gitlab?: SortOrderInput | SortOrder
@@ -15461,6 +15479,7 @@ export namespace Prisma {
     slug?: StringWithAggregatesFilter<"Portfolio"> | string
     phoneNumber?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     description?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
+    aboutme?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     location?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     github?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     gitlab?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
@@ -16262,6 +16281,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -16296,6 +16316,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -16328,6 +16349,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16362,6 +16384,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16395,6 +16418,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -16421,6 +16445,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16448,6 +16473,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17441,6 +17467,7 @@ export namespace Prisma {
     slug?: SortOrder
     phoneNumber?: SortOrder
     description?: SortOrder
+    aboutme?: SortOrder
     location?: SortOrder
     github?: SortOrder
     gitlab?: SortOrder
@@ -17468,6 +17495,7 @@ export namespace Prisma {
     slug?: SortOrder
     phoneNumber?: SortOrder
     description?: SortOrder
+    aboutme?: SortOrder
     location?: SortOrder
     github?: SortOrder
     gitlab?: SortOrder
@@ -17495,6 +17523,7 @@ export namespace Prisma {
     slug?: SortOrder
     phoneNumber?: SortOrder
     description?: SortOrder
+    aboutme?: SortOrder
     location?: SortOrder
     github?: SortOrder
     gitlab?: SortOrder
@@ -18846,6 +18875,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -18878,6 +18908,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19000,6 +19031,7 @@ export namespace Prisma {
     slug?: StringFilter<"Portfolio"> | string
     phoneNumber?: StringNullableFilter<"Portfolio"> | string | null
     description?: StringNullableFilter<"Portfolio"> | string | null
+    aboutme?: StringNullableFilter<"Portfolio"> | string | null
     location?: StringNullableFilter<"Portfolio"> | string | null
     github?: StringNullableFilter<"Portfolio"> | string | null
     gitlab?: StringNullableFilter<"Portfolio"> | string | null
@@ -19613,6 +19645,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19646,6 +19679,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19693,6 +19727,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19726,6 +19761,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19757,6 +19793,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19790,6 +19827,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19837,6 +19875,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19870,6 +19909,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19901,6 +19941,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19934,6 +19975,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -19981,6 +20023,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20014,6 +20057,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20045,6 +20089,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20078,6 +20123,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20149,6 +20195,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20182,6 +20229,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20240,6 +20288,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20273,6 +20322,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20320,6 +20370,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20353,6 +20404,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20384,6 +20436,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20417,6 +20470,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20464,6 +20518,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20497,6 +20552,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20640,6 +20696,7 @@ export namespace Prisma {
     slug: string
     phoneNumber?: string | null
     description?: string | null
+    aboutme?: string | null
     location?: string | null
     github?: string | null
     gitlab?: string | null
@@ -20726,6 +20783,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20758,6 +20816,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20790,6 +20849,7 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    aboutme?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     github?: NullableStringFieldUpdateOperationsInput | string | null
     gitlab?: NullableStringFieldUpdateOperationsInput | string | null

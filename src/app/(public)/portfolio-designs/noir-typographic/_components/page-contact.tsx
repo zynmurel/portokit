@@ -62,7 +62,7 @@ function PageContact({ profile }: { profile: Portfolio }) {
 
   return (
     <div id="contact">
-      <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 sm:pb-28">
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16 sm:px-10 sm:pb-28">
         {/* <SectionLabel index="05" label="Contact" /> */}
 
         <div className="mt-12 grid grid-cols-1 items-end gap-10 md:grid-cols-12">
@@ -71,18 +71,10 @@ function PageContact({ profile }: { profile: Portfolio }) {
             className="col-span-1 md:col-span-8"
             amount={0.4}
           >
-            <h2 className="text-4xl leading-[1.1] font-black tracking-tight uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-              Let&rsquo;s
-              <span className={outlineText}> Talk</span>
+            <h2 className="text-4xl leading-[1.1] font-black tracking-tight uppercase sm:text-4xl md:text-3xl lg:text-4xl">
+              Let&rsquo;s <span className={outlineText}> Talk</span>
             </h2>
-          </FadeIn>
-          <FadeIn
-            direction="left"
-            delay={0.15}
-            className="col-span-1 md:col-span-4 md:mb-2"
-            amount={0.4}
-          >
-            <code className="text-muted-foreground block max-w-md text-base">
+            <code className="text-muted-foreground mt-2 max-w-md text-sm md:text-base">
               Have a project, a question, or just want to say hi? Drop a message
               below &mdash; I&rsquo;ll get back to you.
             </code>

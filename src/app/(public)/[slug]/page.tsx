@@ -1,36 +1,8 @@
-import { type Metadata } from "next";
 import { api, HydrateClient } from "@/trpc/server";
 import ThemeSetter from "../portfolio-designs/noir-typographic/_components/theme-setter";
 import NoirTypographic from "../portfolio-designs/noir-typographic/main";
 import { portfolioDesigns } from "../portfolio-designs/const";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const profile = await api.portfolio.getPortfolioBySlug(slug);
-
-  if (!profile) {
-    return { title: "Portfolio not found" };
-  }
-
-  const description = profile.description ?? profile.role;
-
-  return {
-    title: profile.name,
-    description: description ?? "Portfolio",
-    openGraph: {
-      title: profile.name,
-      description: description ?? "Portfolio",
-      images: profile.image ? [{ url: profile.image }] : undefined,
-    },
-    icons: {
-      icon: profile.logo ? [{ url: profile.logo }] : undefined,
-    },
-  };
-}
+import CvDocument from "./cv/_components/cv-document";
 
 export default async function Page({
   params,
@@ -56,6 +28,9 @@ export default async function Page({
         ) : (
           <NoirTypographic profile={profile} />
         )}
+        <div className="hidden print:block">
+          <CvDocument profile={profile} projects={profile.projects} />
+        </div>
       </ThemeSetter>
     </HydrateClient>
   );

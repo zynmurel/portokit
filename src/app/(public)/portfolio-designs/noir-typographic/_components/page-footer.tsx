@@ -15,16 +15,13 @@ const outlineText =
 
 const sectionLinks = [
   { label: "Home", href: "#home" },
-  { label: "Skills", href: "#skills" },
+  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
 function PageFooter({ profile }: { profile: Portfolio }) {
-  const fullName = profile.name.split(" ");
-  const lastName = fullName.pop() || "";
-  const firstName = fullName.join(" ");
 
   const socialLinks = [
     { label: "GitHub", href: profile.github, icon: FaGithub },
@@ -34,11 +31,9 @@ function PageFooter({ profile }: { profile: Portfolio }) {
     { label: "Instagram", href: profile.instagram, icon: FaInstagram },
   ].filter((l) => Boolean(l.href));
 
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-foreground/20 mt-10 border-t">
-      <div className="mx-auto w-full max-w-7xl px-6 pt-16 pb-10 sm:px-10 sm:pt-24">
+      <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-10 sm:px-10 sm:pt-24">
         <Stagger
           staggerChildren={0.12}
           delayChildren={0.05}
@@ -52,14 +47,13 @@ function PageFooter({ profile }: { profile: Portfolio }) {
             <span className="text-foreground/60 font-mono text-xs tracking-[0.3em] uppercase">
               Made it to the bottom
             </span>
-            <h2 className="text-4xl leading-[0.95] font-black tracking-tight uppercase sm:text-5xl md:text-6xl text-center md:text-left">
-              {firstName ? (
+            <h2 className="text-3xl leading-[0.95] font-black tracking-tight uppercase sm:text-3xl md:text-4xl text-center md:text-left">
+              
                 <>
-                  {firstName}
+                  Thank you
                   <br />
                 </>
-              ) : null}
-              <span className={outlineText}>{lastName}</span>
+              <span className={outlineText}>for visiting</span>
             </h2>
             {profile.description ? (
               <code className="text-muted-foreground max-w-md text-sm text-center md:text-left hidden">
@@ -127,7 +121,7 @@ function PageFooter({ profile }: { profile: Portfolio }) {
           className="border-foreground/20 mt-16 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row"
         >
           <code className="text-foreground/60 text-xs text-center md:text-left">
-            © {year} <span className="capitalize">{profile.title}</span>. All rights reserved.
+             <span className="">{profile.title}</span>
           </code>
           <code className="text-foreground/60 font-mono text-[10px] tracking-[0.3em] uppercase">
             {profile.location ? `${profile.location}` : ""}

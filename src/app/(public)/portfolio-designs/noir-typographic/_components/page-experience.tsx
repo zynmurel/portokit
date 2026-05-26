@@ -1,11 +1,7 @@
 import type { Experience, Portfolio } from "generated/prisma";
 import { format } from "date-fns";
 import React from "react";
-import {
-  FadeIn,
-  StaggerItemLi,
-  StaggerOl,
-} from "./motion-primitives";
+import { FadeIn, StaggerItemLi, StaggerOl } from "./motion-primitives";
 import { SectionLabel } from "./section-label";
 
 type ProfileWithRelations = Portfolio & {
@@ -52,7 +48,7 @@ function PageExperience({ profile }: { profile: ProfileWithRelations }) {
 
   return (
     <div id="experience">
-      <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 sm:pb-28">
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16 sm:px-10 sm:pb-28">
         <FadeIn direction="right" amount={0.5}>
           <SectionLabel index="03" label="Experience" />
         </FadeIn>
@@ -63,21 +59,13 @@ function PageExperience({ profile }: { profile: ProfileWithRelations }) {
             className="col-span-1 md:col-span-8"
             amount={0.4}
           >
-            <h2 className="text-4xl sm:text-5xl leading-[1.1] font-black tracking-tight uppercase md:text-6xl lg:text-7xl">
-              Where I&rsquo;ve
-              <br />
-              <span className={outlineText}>Worked</span>
+            <h2 className="text-4xl leading-[1.1] font-black tracking-tight uppercase sm:text-4xl md:text-4xl lg:text-5xl">
+              Career <span className={outlineText}>Journey</span>
             </h2>
-          </FadeIn>
-          <FadeIn
-            direction="left"
-            delay={0.15}
-            className="col-span-1 md:col-span-4 md:mb-2"
-            amount={0.4}
-          >
-            <code className="text-muted-foreground block max-w-md text-base">
-              A timeline of the teams, tools, and problems that shaped how I
-              build today.
+
+            <code className="text-muted-foreground mt-2 max-w-md text-sm md:text-base">
+              Experiences, technologies, and collaborations that strengthened my
+              skills in building modern applications.
             </code>
           </FadeIn>
         </div>
@@ -86,15 +74,15 @@ function PageExperience({ profile }: { profile: ProfileWithRelations }) {
           staggerChildren={0.15}
           delayChildren={0.1}
           amount={0.05}
-          className="border-foreground/20 mt-16 flex flex-col border-t"
+          className="mt-10 flex flex-col border-t"
         >
           {experiences.map((exp, idx) => (
             <StaggerItemLi
               key={exp.id}
               direction="up"
-              className="border-foreground/20 group hover:bg-foreground hover:text-background border-b transition-colors duration-300"
+              className="0 group hover:bg-foreground hover:text-background border-b transition-colors duration-300"
             >
-              <div className="grid grid-cols-1 gap-8  p-6 px-0 lg:px-10 sm:py-10 md:grid-cols-12">
+              <div className="grid grid-cols-1 gap-8 p-6 px-0 sm:py-10 md:grid-cols-12 lg:px-10">
                 <div className="col-span-1 flex flex-col gap-3 md:col-span-3">
                   <div className="text-foreground/60 group-hover:text-background/70 flex flex-row items-center justify-between font-mono text-xs tracking-[0.3em] uppercase">
                     <span>{pad(idx + 1)}</span>
@@ -119,7 +107,7 @@ function PageExperience({ profile }: { profile: ProfileWithRelations }) {
 
                 <div className="col-span-1 flex flex-col gap-5 md:col-span-9">
                   <div className="flex flex-col gap-2">
-                    <h3 className="text-2xl leading-[1.05] font-black tracking-tight uppercase sm:text-4xl md:text-4xl md:text-5xl">
+                    <h3 className="text-xl leading-[1.05] font-black tracking-tight uppercase sm:text-4xl md:text-3xl">
                       {exp.position}
                     </h3>
                     <div className="text-foreground/70 group-hover:text-background/70 font-mono text-xs tracking-[0.3em] uppercase">

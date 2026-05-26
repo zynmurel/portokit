@@ -1,8 +1,13 @@
+"use client";
 import type { Portfolio } from "generated/prisma";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowDownToLine, Dot, LayoutGrid } from "lucide-react";
+import {
+  Download,
+  LayoutGrid,
+  Loader2,
+} from "lucide-react";
 import {
   FaGithub,
   FaGitlab,
@@ -11,8 +16,11 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { FadeIn, Stagger, StaggerItem } from "./motion-primitives";
+import { SectionLabel } from "./section-label";
+import { handleDownloadCV } from "@/app/(public)/[slug]/cv/_components/download-function";
 
 function PageHome({ profile }: { profile: Portfolio }) {
+  const [downloadingCV, setDownloadingCV] = useState(false);
   const fullName = profile.name.split(" ");
   const lastName = fullName.pop() || "";
   const firstName = fullName.join(" ");
@@ -45,30 +53,33 @@ function PageHome({ profile }: { profile: Portfolio }) {
     },
   ].filter((l) => Boolean(l.href));
 
+  const onDownloadCVClick = async () => {
+    await handleDownloadCV({
+      fileName: `${profile.name}-CV.pdf`,
+      setIsDownloading: (e: boolean) => setDownloadingCV(e),
+    });
+  };
+
   return (
     <div id="home">
-      <div className="mt-8 md:mt-10 lg:mt-16 xl:mt-24">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-16 sm:px-10 sm:py-28">
+      <div className="mt-14 md:mt-10 lg:mt-16 xl:mt-24">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-16 sm:px-10 sm:py-28">
           <Stagger
             delayChildren={0.25}
             staggerChildren={0.12}
             amount={0.1}
             className="flex w-full flex-col justify-center"
           >
-            <StaggerItem
-              direction="right"
-              className="text-foreground/70 flex flex-row items-center gap-5 font-mono text-xs tracking-widest uppercase sm:text-sm md:text-base"
-            >
-              <div className="border-foreground/70 hidden w-8 border-b-2 sm:block" />{" "}
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <div>{profile.role}</div>{" "}
-                <Dot className="hidden size-6 sm:block" />{" "}
-                <div className="text-[10px] sm:text-sm">{profile.location}</div>
-              </div>
-            </StaggerItem>
+            <FadeIn direction="right" amount={0.5}>
+              <SectionLabel
+                index="01"
+                label="Hi, my name is"
+                shouldShowBorder={false}
+              />
+            </FadeIn>
 
             <StaggerItem className="flex flex-row justify-between gap-10 py-4">
-              <div className="flex flex-col py-4 text-5xl font-black uppercase sm:text-6xl md:text-7xl xl:text-8xl">
+              <div className="flex flex-col py-4 text-4xl font-black uppercase sm:text-5xl md:text-6xl xl:text-7xl">
                 <div>{firstName}</div>
                 <div className="text-background uppercase [text-shadow:-2px_0_var(--foreground),2px_0_var(--foreground),0_-2px_var(--foreground),0_2px_var(--foreground)]">
                   {lastName}
@@ -76,9 +87,9 @@ function PageHome({ profile }: { profile: Portfolio }) {
               </div>
             </StaggerItem>
             <StaggerItem>
-              <code className="text-muted-foreground flex flex-row justify-between pb-4 text-sm sm:text-lg">
+              <div className="text-foreground/90 flex flex-row justify-between pb-4 text-sm tracking-wider sm:text-lg">
                 <div>{profile.description}</div>
-              </code>
+              </div>
             </StaggerItem>
             <StaggerItem className="flex cursor-pointer flex-row gap-2 py-4 sm:gap-4">
               <Link href="#projects" className="flex-1 sm:flex-none">
@@ -89,25 +100,25 @@ function PageHome({ profile }: { profile: Portfolio }) {
                   </code>
                 </Button>
               </Link>
-              <Link
-                href={`/${profile.slug}/cv`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 sm:flex-none"
-              >
+              <div>
                 <Button
                   variant="outline"
                   className="h-12 w-full cursor-pointer gap-3 sm:h-14 sm:px-8"
+                  onClick={onDownloadCVClick}
                 >
-                  <ArrowDownToLine
-                    className="size-4 sm:size-5"
-                    strokeWidth={2.5}
-                  />
+                  {downloadingCV ? (
+                    <Loader2 className="size-4 animate-spin sm:size-5" />
+                  ) : (
+                    <Download
+                      className="size-4 sm:size-5"
+                      strokeWidth={2.5}
+                    />
+                  )}
                   <code className="text-xs sm:text-sm md:text-base">
-                    Download CV
+                    Download My CV
                   </code>
                 </Button>
-              </Link>
+              </div>
             </StaggerItem>
             <FadeIn
               direction="up"
@@ -124,7 +135,7 @@ function PageHome({ profile }: { profile: Portfolio }) {
                   <Link
                     href={link.href || ""}
                     target="_blank"
-                    className="hover:bg-muted hover:-translate-y-1 inline-flex aspect-square rounded-lg border p-3 transition-all duration-300"
+                    className="hover:bg-muted inline-flex aspect-square rounded-lg border p-3 transition-all duration-300 hover:-translate-y-1"
                   >
                     <link.icon className="size-5" />
                   </Link>
